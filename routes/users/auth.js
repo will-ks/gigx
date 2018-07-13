@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
     return res.redirect('/');
   }
   const data = {
-    messages: req.flash('signup-error')
+    messages: req.flash('error')
   };
   res.render('users/auth', data);
 });
@@ -28,12 +28,12 @@ router.post('/signup', (req, res, next) => {
 
   // Check that a email and password have been provided
   if (!email || !password) {
-    req.flash('signup-error', 'Please provide an email and password');
+    req.flash('error', 'Please provide an email and password');
     return res.redirect('/users/auth');
   }
   // Check that email is a valid email
   if (!validator.isEmail(email)) {
-    req.flash('signup-error', 'Please provide a valid email');
+    req.flash('error', 'Please provide a valid email');
     return res.redirect('/users/auth');
   }
 
@@ -41,7 +41,7 @@ router.post('/signup', (req, res, next) => {
   User.findOne({ email: email })
     .then(user => {
       if (user) {
-        req.flash('signup-error', 'An account already exists with that email');
+        req.flash('error', 'An account already exists with that email');
         return res.redirect('/users/auth');
       }
 
@@ -59,6 +59,41 @@ router.post('/signup', (req, res, next) => {
           req.session.currentUser = user;
           res.redirect('/list');
         });
+    })
+    .catch(next);
+});
+
+// Login
+
+router.post('/login', (req, res, next) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  // Check that a email and password have been provided
+  if (!email || !password) {
+    req.flash('error', 'Please provide an email and password');
+    return res.redirect('/users/auth');
+  }
+  // Check that email is a valid email
+  if (!validator.isEmail(email)) {
+    req.flash('error', 'Please provide a valid email');
+    return res.redirect('/users/auth');
+  }
+
+  // Check if email already exists in database
+  User.findOne({ email: email })
+    .then(user => {
+      if (!user) {
+        req.flash('error', 'No account found with that email');
+        return res.redirect('/users/auth');
+      }
+
+      if (!bcrypt.compareSync(password, user.password)) {
+        req.flash('error', 'Please check your password');
+        return res.redirect('/users/auth');
+      }
+      req.session.currentUser = user;
+      res.redirect('/list');
     })
     .catch(next);
 });

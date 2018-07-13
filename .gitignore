@@ -84,3 +84,7 @@ typings/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# compiled css
+public/stylesheets/*.css
+public/stylesheets/*.map

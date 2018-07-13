@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon -e js,json,hbs ./bin/www"
+    "sass": "sass --watch sass/style.scss:public/stylesheets/style.css",
+    "dev": "concurrently \"npm run sass\" \"nodemon -e js,json,hbs ./bin/www\""
   },
   "dependencies": {
     "bcrypt": "^3.0.0",
@@ -21,6 +22,7 @@
     "validator": "^10.4.0"
   },
   "devDependencies": {
+    "concurrently": "^3.6.0",
     "eslint": "^5.1.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.13.0",

@@ -25,6 +25,10 @@ List of user stories in order of priority/importance.
 
 List of other features outside of the MVPs scope
 
+User:
+- Change password
+- Forgot your password?
+
 Search:
 - Search concerts by genre, band, title, year etc.
 

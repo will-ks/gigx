@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const rfs = require('rotating-file-stream');
 const hbs = require('hbs');
+const session = require('express-session');
 
 const index = require('./routes/index');
 const auth = require('./routes/users/auth');
@@ -40,6 +41,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('combined', { stream: accessLogStream }));
+app.use(session({
+  secret: 'mongoose-movies',
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000 // 1 day
+  },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
 // --- Routes --- //
 app.use('/', index);

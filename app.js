@@ -9,6 +9,7 @@ const fs = require('fs');
 const rfs = require('rotating-file-stream');
 const hbs = require('hbs');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 const index = require('./routes/index');
 const auth = require('./routes/users/auth');
@@ -42,7 +43,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('combined', { stream: accessLogStream }));
 app.use(session({
-  secret: 'mongoose-movies',
+  secret: 'gigx',
   cookie: {
     maxAge: 24 * 60 * 60 * 1000 // 1 day
   },

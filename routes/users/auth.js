@@ -19,9 +19,9 @@ router.post('/signup', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   // Check if user is already logged in
-  // if (req.session.currentUser) {
-  //   return res.redirect('/');
-  // }
+  if (req.session.currentUser) {
+    return res.redirect('/');
+  }
   // Check that a email and password have been provided
   if (!email || !password) {
     // Flash an error
@@ -52,6 +52,7 @@ router.post('/signup', (req, res, next) => {
 
       return newUser.save()
         .then(user => {
+          req.session.currentUser = user;
           res.redirect('/list');
         });
     })

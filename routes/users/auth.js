@@ -12,24 +12,28 @@ const saltRounds = 10;
 // --- Routes --- //
 // Sign up
 router.get('/', (req, res, next) => {
-  res.render('users/auth');
+  // Check if user is already logged in
+  if (req.session.currentUser) {
+    return res.redirect('/');
+  }
+  const data = {
+    messages: req.flash('signup-error')
+  };
+  res.render('users/auth', data);
 });
 
 router.post('/signup', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
-  // Check if user is already logged in
-  if (req.session.currentUser) {
-    return res.redirect('/');
-  }
+
   // Check that a email and password have been provided
   if (!email || !password) {
-    // Flash an error
+    req.flash('signup-error', 'Please provide an email and password');
     return res.redirect('/users/auth');
   }
   // Check that email is a valid email
   if (!validator.isEmail(email)) {
-    // Flash an error
+    req.flash('signup-error', 'Please provide a valid email');
     return res.redirect('/users/auth');
   }
 
@@ -37,7 +41,7 @@ router.post('/signup', (req, res, next) => {
   User.findOne({ email: email })
     .then(user => {
       if (user) {
-        // Flash an error
+        req.flash('signup-error', 'An account already exists with that email');
         return res.redirect('/users/auth');
       }
 

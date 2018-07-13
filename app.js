@@ -10,6 +10,7 @@ const rfs = require('rotating-file-stream');
 const hbs = require('hbs');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
 
 const index = require('./routes/index');
 const auth = require('./routes/users/auth');
@@ -52,6 +53,7 @@ app.use(session({
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
+app.use(flash());
 
 // --- Routes --- //
 app.use('/', index);

@@ -1,8 +1,8 @@
 // --- Dependencies --- //
-import isEmail from 'validator/lib/isEmail';
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const validator = require('validator');
 
 const User = require('../../models/user');
 
@@ -24,7 +24,7 @@ router.get('/signup', (req, res, next) => {
     return res.redirect('/signup');
   }
   // Check that email is a valid email
-  if (!isEmail(email)) {
+  if (!validator.isEmail(email)) {
     // Flash an error
     return res.redirect('/signup');
   }
@@ -46,11 +46,10 @@ router.get('/signup', (req, res, next) => {
         password: hashed
       });
 
-      newUser.save()
+      return newUser.save()
         .then(user => {
-
           res.redirect('/list');
-        }
+        });
     })
     .catch(next);
 });

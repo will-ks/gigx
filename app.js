@@ -10,7 +10,7 @@ const rfs = require('rotating-file-stream');
 const hbs = require('hbs');
 
 const index = require('./routes/index');
-const users = require('./routes/users');
+const users = require('./routes/users/auth');
 
 // --- Instantiations --- //
 const app = express();
@@ -43,7 +43,7 @@ app.use(logger('combined', { stream: accessLogStream }));
 
 // --- Routes --- //
 app.use('/', index);
-app.use('/users', users);
+app.use('/users/auth', users);
 
 // -- 404 and error handler
 app.use((req, res, next) => {

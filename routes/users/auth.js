@@ -98,4 +98,11 @@ router.post('/login', (req, res, next) => {
     .catch(next);
 });
 
+// Logout
+router
+  .post('/logout', (req, res, next) => {
+    delete req.session.currentUser;
+    res.redirect('/');
+  });
+
 module.exports = router;

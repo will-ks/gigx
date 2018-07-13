@@ -1,2 +1,8 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+{{#if currentUser}}
+<form action="users/auth/logout" method="POST">
+<button>Logout</button>
+</form>
+{{/if}}

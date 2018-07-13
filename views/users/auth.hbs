@@ -24,3 +24,31 @@
   </ul>
 </p>
 {{/if}}
+
+<hr>
+<h1>Login</h1>
+<form action="/users/auth/login" method="POST">
+  <div>
+    <label for="email">Email: </label>
+    <input type="text" name="email" id="email">
+  </div>
+  <div>
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password">
+  </div>
+
+  <div>
+    <button>Login</button>
+  </div>
+</form>
+
+{{#if messages.length}}
+<p>
+  <ul>
+    {{#each messages}}
+    <li>{{this}}</li>
+    {{/each}}
+
+  </ul>
+</p>
+{{/if}}

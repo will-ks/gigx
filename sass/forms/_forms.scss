@@ -1,0 +1,32 @@
+
+$form-background: #E3E3E3;
+
+.auth-form {
+  width: 80%;
+
+}
+
+form {
+  background-color: $form-background;
+  width: 100%;
+  padding: 20px;
+
+
+  input {
+    width: 100%
+  }
+
+button {
+  width: 200px;
+    height: 50px;
+    background-color:#1c5380;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-size: 0.5em;
+    margin-top: 20px;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding: 10px;
+}
+}

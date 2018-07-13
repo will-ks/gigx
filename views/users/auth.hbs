@@ -1,16 +1,16 @@
+<div class="container center">
+<section class="auth-form center">
 <h1>Sign Up</h1>
 <form action="/users/auth/signup" method="POST">
   <div>
-    <label for="email">Email: </label>
-    <input type="text" name="email" id="email">
+    <input type="text" name="email" id="signup-email" placeholder="Email">
   </div>
   <div>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password">
+    <input type="password" name="password" id="signup-password" placeholder="Password">
   </div>
 
   <div>
-    <button>Sign up</button>
+    <button class="btn-form">Sign up</button>
   </div>
 </form>
 
@@ -24,21 +24,21 @@
   </ul>
 </p>
 {{/if}}
+</section>
 
 <hr>
+<section class="auth-form center">
 <h1>Login</h1>
 <form action="/users/auth/login" method="POST">
   <div>
-    <label for="email">Email: </label>
-    <input type="text" name="email" id="email">
+    <input type="text" name="email" id="login-email" placeholder="Email">
   </div>
   <div>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password">
+    <input type="password" name="password" id="login-password" placeholder="Password">
   </div>
 
   <div>
-    <button>Login</button>
+    <button class="btn-form">Login</button>
   </div>
 </form>
 
@@ -52,3 +52,5 @@
   </ul>
 </p>
 {{/if}}
+</section>
+</div>

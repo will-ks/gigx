@@ -1,9 +1,8 @@
 'use strict';
 
-// --- Dependencies ---//
+// --- Dependencies --- //
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const fs = require('fs');
@@ -13,10 +12,10 @@ const hbs = require('hbs');
 const index = require('./routes/index');
 const users = require('./routes/users');
 
-// --- Instantiations ---//
+// --- Instantiations --- //
 const app = express();
 
-// --- Configurations ---//
+// --- Configurations --- //
 // -- Database
 const dbName = 'gigx';
 mongoose.connect(`mongodb://localhost/${dbName}`);
@@ -35,15 +34,14 @@ const accessLogStream = rfs('access.log', {
   path: logDirectory
 });
 
-// --- Middleware ---//
+// --- Middleware --- //
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('combined', { stream: accessLogStream }));
 
-// --- Routes ---//
+// --- Routes --- //
 app.use('/', index);
 app.use('/users', users);
 

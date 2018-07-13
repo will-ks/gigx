@@ -6,6 +6,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const fs = require('fs');
+const rfs = require('rotating-file-stream');
+const hbs = require('hbs');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -14,14 +17,23 @@ const users = require('./routes/users');
 const app = express();
 
 // --- Configurations ---//
-// Database
+// -- Database
 const dbName = 'gigx';
 mongoose.connect(`mongodb://localhost/${dbName}`);
-// View engine
+// -- View engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 // Use partials
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
+// -- Logging
+const logDirectory = path.join(__dirname, 'log');
+// ensure log directory exists
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+// create a rotating write stream
+const accessLogStream = rfs('access.log', {
+  interval: '1d', // rotate daily
+  path: logDirectory
+});
 
 // --- Middleware ---//
 app.use(logger('dev'));
@@ -29,6 +41,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('combined', { stream: accessLogStream }));
 
 // --- Routes ---//
 app.use('/', index);

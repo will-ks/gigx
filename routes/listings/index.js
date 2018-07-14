@@ -28,4 +28,8 @@ router.get('/view/:id', (req, res, next) => {
     .catch(next);
 });
 
+router.get('/add', (req, res, next) => {
+  res.render('listings/add');
+});
+
 module.exports = router;

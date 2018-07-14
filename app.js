@@ -14,7 +14,7 @@ const flash = require('connect-flash');
 
 const index = require('./routes/index');
 const auth = require('./routes/users/auth');
-const list = require('./routes/listings/list');
+const list = require('./routes/listings');
 
 // --- Instantiations --- //
 const app = express();
@@ -64,7 +64,7 @@ app.use((req, res, next) => {
 // --- Routes --- //
 app.use('/', index);
 app.use('/users/auth', auth);
-app.use('/listings/list', list);
+app.use('/listings', list);
 
 // -- 404 and error handler
 app.use((req, res, next) => {

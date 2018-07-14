@@ -8,7 +8,7 @@ const router = express.Router();
 
 // --- Routes --- //
 router.get('/', (req, res, next) => {
-  res.render('/listings');
+  res.render('listings/');
 });
 
 module.exports = router;

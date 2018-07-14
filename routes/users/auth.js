@@ -31,12 +31,12 @@ router.post('/signup', (req, res, next) => {
   // Check that a email and password have been provided
   if (!email || !password) {
     req.flash('error', 'Please provide an email and password');
-    return res.redirect('/users/auth');
+    return res.redirect('/users/auth?mode=signup');
   }
   // Check that email is a valid email
   if (!validator.isEmail(email)) {
     req.flash('error', 'Please provide a valid email');
-    return res.redirect('/users/auth');
+    return res.redirect('/users/auth?mode=signup');
   }
 
   // Check if email already exists in database
@@ -44,7 +44,7 @@ router.post('/signup', (req, res, next) => {
     .then(user => {
       if (user) {
         req.flash('error', 'An account already exists with that email');
-        return res.redirect('/users/auth');
+        return res.redirect('/users/auth?mode=signup');
       }
 
       // Create the user in the database
@@ -74,12 +74,12 @@ router.post('/login', (req, res, next) => {
   // Check that a email and password have been provided
   if (!email || !password) {
     req.flash('error', 'Please provide an email and password');
-    return res.redirect('/users/auth');
+    return res.redirect('/users/auth?mode=login');
   }
   // Check that email is a valid email
   if (!validator.isEmail(email)) {
     req.flash('error', 'Please provide a valid email');
-    return res.redirect('/users/auth');
+    return res.redirect('/users/auth?mode=login');
   }
 
   // Check if email already exists in database
@@ -87,12 +87,12 @@ router.post('/login', (req, res, next) => {
     .then(user => {
       if (!user) {
         req.flash('error', 'No account found with that email');
-        return res.redirect('/users/auth');
+        return res.redirect('/users/auth?mode=login');
       }
 
       if (!bcrypt.compareSync(password, user.password)) {
         req.flash('error', 'Please check your password');
-        return res.redirect('/users/auth');
+        return res.redirect('/users/auth?mode=login');
       }
       req.session.currentUser = user;
       res.redirect('/listings');

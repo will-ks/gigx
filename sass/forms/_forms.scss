@@ -1,5 +1,7 @@
 
 $form-background: #E3E3E3;
+$red-button: #C81C1C;
+
 
 .auth-form {
   width: 80%;
@@ -13,13 +15,14 @@ form {
 
 
   input {
-    width: 100%
+    width: 80%;
+    height: 30px;
   }
 
-button {
-  width: 200px;
+  button {
+    width: 200px;
     height: 50px;
-    background-color:#1c5380;
+    background-color: $red-button;
     color: white;
     border-radius: 20px;
     border: none;

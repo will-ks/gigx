@@ -8,7 +8,10 @@ const Listing = require('../../models/listing');
 
 // --- Routes --- //
 router.get('/', (req, res, next) => {
-  res.render('listings');
+  const data = {
+    messages: req.flash('error')
+  };
+  res.render('listings', data);
 });
 
 router.get('/view/:id', (req, res, next) => {
@@ -17,6 +20,7 @@ router.get('/view/:id', (req, res, next) => {
   Listing.findById(listingId)
     .then(listing => {
       if (!listing) {
+        req.flash('error', 'Invalid listing id');
         res.redirect('/listings');
       }
       res.render('listings/view', listing);

@@ -1,2 +1,13 @@
 <h1>
   Hello worrrrldddd</h1>
+
+{{#if messages.length}}
+<p>
+  <ul>
+    {{#each messages}}
+    <li>{{this}}</li>
+    {{/each}}
+
+  </ul>
+</p>
+{{/if}}

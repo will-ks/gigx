@@ -1,54 +1,59 @@
-<h1>Sign Up</h1>
-<form action="/users/auth/signup" method="POST">
-  <div>
-    <label for="email">Email: </label>
-    <input type="text" name="email" id="email">
-  </div>
-  <div>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password">
-  </div>
+<section id="signup" class="hidden">
+  <h1>Sign Up</h1>
+  <form action="/users/auth/signup" method="POST">
+    <div>
+      <label for="email">Email: </label>
+      <input type="text" name="email" id="email">
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password">
+    </div>
 
-  <div>
-    <button>Sign up</button>
-  </div>
-</form>
+    <div>
+      <button>Sign up</button>
+    </div>
+  </form>
 
-{{#if messages.length}}
-<p>
-  <ul>
-    {{#each messages}}
-    <li>{{this}}</li>
-    {{/each}}
+  {{#if messages.length}}
+  <p>
+    <ul>
+      {{#each messages}}
+      <li>{{this}}</li>
+      {{/each}}
 
-  </ul>
-</p>
-{{/if}}
+    </ul>
+  </p>
+  {{/if}}
+</section>
 
-<hr>
-<h1>Login</h1>
-<form action="/users/auth/login" method="POST">
-  <div>
-    <label for="email">Email: </label>
-    <input type="text" name="email" id="email">
-  </div>
-  <div>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password">
-  </div>
+<section id="login" class="hidden">
+  <h1>Login</h1>
+  <form action="/users/auth/login" method="POST">
+    <div>
+      <label for="email">Email: </label>
+      <input type="text" name="email" id="email">
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password">
+    </div>
 
-  <div>
-    <button>Login</button>
-  </div>
-</form>
+    <div>
+      <button>Login</button>
+    </div>
+  </form>
 
-{{#if messages.length}}
-<p>
-  <ul>
-    {{#each messages}}
-    <li>{{this}}</li>
-    {{/each}}
+  {{#if messages.length}}
+  <p>
+    <ul>
+      {{#each messages}}
+      <li>{{this}}</li>
+      {{/each}}
 
-  </ul>
-</p>
-{{/if}}
+    </ul>
+  </p>
+  {{/if}}
+</section>
+
+<script src="/javascripts/auth.js"></script>

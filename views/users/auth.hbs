@@ -1,57 +1,59 @@
-<div class="container center">
-  <section id="signup" class="auth-form center hidden">
-    <h1>Sign Up</h1>
-    <form action="/users/auth/signup" method="POST">
-      <div>
-        <input type="email" name="email" id="signup-email" placeholder="Email" required>
-      </div>
-      <div>
-        <input type="password" name="password" id="signup-password" placeholder="Password" required>
-      </div>
+<div class="auth-background">
+  <div class="container center">
+    <section id="signup" class="auth-form center hidden">
+      <h1>Sign Up</h1>
+      <form action="/users/auth/signup" method="POST">
+        <div>
+          <input type="email" name="email" id="signup-email" placeholder="Email" required>
+        </div>
+        <div>
+          <input type="password" name="password" id="signup-password" placeholder="Password" required>
+        </div>
 
-      <div>
-        <button class="btn-form">Sign up</button>
-      </div>
-    </form>
+        <div>
+          <button class="btn-form">Sign up</button>
+        </div>
+      </form>
 
-    {{#if messages.length}}
-    <p>
-      <ul>
-        {{#each messages}}
-        <li>{{this}}</li>
-        {{/each}}
+      {{#if messages.length}}
+      <p>
+        <ul>
+          {{#each messages}}
+          <li>{{this}}</li>
+          {{/each}}
 
-      </ul>
-    </p>
-    {{/if}}
-  </section>
+        </ul>
+      </p>
+      {{/if}}
+    </section>
 
-  <section id="login" class="auth-form center hidden">
-    <h1>Login</h1>
-    <form action="/users/auth/login" method="POST">
-      <div>
-        <input type="email" name="email" id="login-email" placeholder="Email" required>
-      </div>
-      <div>
-        <input type="password" name="password" id="login-password" placeholder="Password" required>
-      </div>
+    <section id="login" class="auth-form center hidden">
+      <h1>Login</h1>
+      <form action="/users/auth/login" method="POST">
+        <div>
+          <input type="email" name="email" id="login-email" placeholder="Email" required>
+        </div>
+        <div>
+          <input type="password" name="password" id="login-password" placeholder="Password" required>
+        </div>
 
-      <div>
-        <button class="btn-form">Login</button>
-      </div>
-    </form>
+        <div>
+          <button class="btn-form">Login</button>
+        </div>
+      </form>
 
-    {{#if messages.length}}
-    <p>
-      <ul>
-        {{#each messages}}
-        <li>{{this}}</li>
-        {{/each}}
+      {{#if messages.length}}
+      <p>
+        <ul>
+          {{#each messages}}
+          <li>{{this}}</li>
+          {{/each}}
 
-      </ul>
-    </p>
-    {{/if}}
-  </section>
+        </ul>
+      </p>
+      {{/if}}
+    </section>
+  </div>
+
+  <script src="/javascripts/auth.js"></script>
 </div>
-
-<script src="/javascripts/auth.js"></script>

@@ -3,10 +3,10 @@
     <h1>Sign Up</h1>
     <form action="/users/auth/signup" method="POST">
       <div>
-        <input type="text" name="email" id="signup-email" placeholder="Email">
+        <input type="email" name="email" id="signup-email" placeholder="Email" required>
       </div>
       <div>
-        <input type="password" name="password" id="signup-password" placeholder="Password">
+        <input type="password" name="password" id="signup-password" placeholder="Password" required>
       </div>
 
       <div>
@@ -26,15 +26,14 @@
     {{/if}}
   </section>
 
-  <hr>
   <section id="login" class="auth-form center hidden">
     <h1>Login</h1>
     <form action="/users/auth/login" method="POST">
       <div>
-        <input type="text" name="email" id="login-email" placeholder="Email">
+        <input type="email" name="email" id="login-email" placeholder="Email" required>
       </div>
       <div>
-        <input type="password" name="password" id="login-password" placeholder="Password">
+        <input type="password" name="password" id="login-password" placeholder="Password" required>
       </div>
 
       <div>

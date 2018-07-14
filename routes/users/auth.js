@@ -59,7 +59,7 @@ router.post('/signup', (req, res, next) => {
       return newUser.save()
         .then(user => {
           req.session.currentUser = user;
-          res.redirect('/list');
+          res.redirect('/listings');
         });
     })
     .catch(next);
@@ -95,7 +95,7 @@ router.post('/login', (req, res, next) => {
         return res.redirect('/users/auth');
       }
       req.session.currentUser = user;
-      res.redirect('/list');
+      res.redirect('/listings');
     })
     .catch(next);
 });

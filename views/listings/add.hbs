@@ -3,19 +3,19 @@
     <h1>Add a listing</h1>
     <form action="/listings/add" method="POST">
       <div>
-        <input type="text" name="title" id="title" placeholder="Concert Title">
+        <input type="text" name="title" id="title" placeholder="Concert Title" required>
       </div>
       <div>
-        <input type="text" name="url" id="url" placeholder="Video URL">
+        <input type="url" name="url" id="url" placeholder="Video URL" required>
       </div>
       <div>
-        <input type="text" name="image" id="image-url" placeholder="Image URL">
+        <input type="url" name="image" id="image-url" placeholder="Image URL">
       </div>
       <div>
-        <input type="text" name="artist" id="artist" placeholder="Artist Name">
+        <input type="text" name="artist" id="artist" placeholder="Artist Name" required>
       </div>
       <div>
-        <input type="number" name="year" id="year" placeholder="Year">
+        <input type="number" name="year" id="year" placeholder="Year" maxlength="4" max="2018" min="1900">
       </div>
       <div>
         <input type="number" name="duration" id="duration" placeholder="Duration (minutes)">
@@ -26,7 +26,7 @@
 
       <div class="left-align">
         <label for="genre">Genre</label>
-        <select name="genre" id="genre">
+        <select name="genre" id="genre" required>
           <option value="Classical">Clasical</option>
           <option value="Blues">Blues</option>
           <option value="Rock">Rock</option>

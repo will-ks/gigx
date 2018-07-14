@@ -1,12 +1,13 @@
 $form-background: #e3e3e3;
 $red-button: #c81c1c;
 
-.auth-form {
-  width: 80%;
+section {
+  background-color: $form-background;
+  padding-top: 20px;
+  margin-top: 100px;
 }
 
 form {
-  background-color: $form-background;
   width: 100%;
   padding: 20px 60px;
 

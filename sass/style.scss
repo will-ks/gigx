@@ -1,3 +1,6 @@
+// --- Variables --- //
+$red-button: #c81c1c;
+
 // --- Reset --- //
 
 @import "_reset";
@@ -12,12 +15,16 @@ body {
 }
 
 h1 {
+  font-size: 2em;
+  text-align: center;
+  color: white;
 }
 
-h2 {
-}
+// h2 {
+// }
 
 h3 {
+  color: white;
 }
 
 p {
@@ -31,22 +38,106 @@ a {
 .hidden {
   display: none;
 }
-// --- Layout --- //
 
-#site-header {
-  padding: 30px 0;
-  color: white;
-  background: #111;
+.hidden-bun {
+  display: none;
 }
 
-#site-footer {
-  color: white;
-  padding: 60px 0;
-  background: #111;
+.burguer-icon {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
-#site-main {
-  margin-bottom: 60px;
+.burguer-icon:hover {
+  cursor: pointer;
+}
+
+.top-burguer,
+.middle-burguer,
+.bottom-burguer {
+  transition: all 0.5s ease;
+  height: 5px;
+  width: 40px;
+  background-color: whitesmoke;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+
+.rotate-top {
+  transition: all 0.5s ease;
+  transform: rotate(45deg);
+}
+
+.rotate-bottom {
+  margin-top: -9px;
+  transition: all 0.5s ease;
+  transform: rotate(-45deg);
+}
+
+.nav-container {
+  margin: 0 auto;
+  background-color: $red-button;
+  padding: 20px;
+  min-height: 70px;
+}
+
+.menu-list {
+  background-color: blue;
+  color: whitesmoke;
+  position: absolute;
+  top: 80px;
+  border-radius: 10px;
+}
+
+.menu-hidden {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 5px;
+  padding-right: 20px;
+}
+
+li:hover {
+  color: lightblue;
+}
+
+li:hover {
+  animation-fill-mode: forwards;
+  position: relative;
+  animation: slide 1s;
+}
+
+@keyframes slide {
+  0% {
+    left: 0px;
+  }
+
+  100% {
+    left: 8px;
+  }
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+.slide-menu {
+  animation: forwards 2s ease;
+  position: relative;
+}
+
+@keyframes forwards {
+  0% {
+    top: 0px;
+  }
+
+  100% {
+    top: 100px;
+  }
 }
 
 .container {
@@ -81,3 +172,5 @@ a {
 // --- Pages overrides --- //
 
 @import "pages/_exception";
+@import "pages/_homepage";
+@import "pages/_authpage";

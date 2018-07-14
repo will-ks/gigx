@@ -1,8 +1,14 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="home-background">
+  <h1>GIGX</h1>
+  <h3 class="center">Watch your favorite concerts</h3>
 
-{{#if currentUser}}
-<form action="users/auth/logout" method="POST">
-<button>Logout</button>
-</form>
-{{/if}}
+  {{#if currentUser}}
+  <form action="users/auth/logout" method="POST" class="center">
+    <button>Logout</button>
+  </form>
+  {{else}}
+  <form action="users/auth/signup" method="POST" class="center">
+    <button>Signup</button>
+  </form>
+  {{/if}}
+</div>

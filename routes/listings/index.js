@@ -10,6 +10,7 @@ const requireLoggedInUser = require('../../middlewares/requireLoggedInUser');
 const isValidObjectId = require('../../middlewares/isValidObjectId');
 
 // --- Routes --- //
+// Listings
 router.get('/', requireLoggedInUser, (req, res, next) => {
   const data = {
     messages: req.flash('error')
@@ -17,9 +18,9 @@ router.get('/', requireLoggedInUser, (req, res, next) => {
   res.render('listings', data);
 });
 
+// View listing
 router.get('/view/:id', requireLoggedInUser, isValidObjectId, (req, res, next) => {
   const listingId = req.params.id;
-  // TODO: Check that id is valid ObjectID, redirect if not
   Listing.findById(listingId)
     .then(listing => {
       if (!listing) {
@@ -31,6 +32,7 @@ router.get('/view/:id', requireLoggedInUser, isValidObjectId, (req, res, next) =
     .catch(next);
 });
 
+// Add listing
 router.get('/add', requireLoggedInUser, (req, res, next) => {
   res.render('listings/add');
 });

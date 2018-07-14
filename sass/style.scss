@@ -1,29 +1,31 @@
-
 // --- Reset --- //
 
-@import '_reset';
+@import "_reset";
 
 // --- Typography --- //
 
 body {
   color: #111;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "PT Sans", sans-serif;
   font-size: 2em;
   line-height: 147%;
 }
 
-h1 {}
+h1 {
+}
 
-h2 {}
+h2 {
+}
 
-h3 {}
+h3 {
+}
 
 p {
   margin: 0;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 .hidden {
@@ -56,6 +58,10 @@ a {
   margin: 0 auto;
 }
 
+.left-align {
+  text-align: left;
+}
+
 .section {
   margin-bottom: 20px;
   padding-top: 20px;
@@ -68,12 +74,10 @@ a {
   }
 }
 
-
 // --- Components --- //
 
-@import 'forms/_forms';
+@import "forms/_forms";
 
 // --- Pages overrides --- //
 
-@import 'pages/_exception';
-
+@import "pages/_exception";

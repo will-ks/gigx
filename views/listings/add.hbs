@@ -1,99 +1,64 @@
-<section id="add-listing" class="center">
-  <h1>Add a listing</h1>
-  <form action="/listings/add" method="POST">
-    <div>
-      <input type="text" name="title" id="title" placeholder="Concert Title">
-    </div>
-    <div>
-      <input type="text" name="url" id="url" placeholder="Video URL">
-    </div>
-    <div>
-      <input type="text" name="image" id="image-url" placeholder="Image URL">
-    </div>
-    <div>
-      <input type="text" name="artist" id="artist" placeholder="Artist Name">
-    </div>
-    <div>
-      <input type="number" name="year" id="year" placeholder="Year">
-    </div>
-    <div>
-      <input type="number" name="duration" id="duration" placeholder="Duration (minutes)">
-    </div>
-    <div>
-      <input type="text" name="location" id="location" placeholder="Location">
-    </div>
-    <div>
-      <label>Genres</label>
+<div class="container center">
+  <section id="add-listing" class="auth-form center">
+    <h1>Add a listing</h1>
+    <form action="/listings/add" method="POST">
       <div>
-        <label for="classical">Classical</label>
-        <input type="checkbox" name="genre_list[]" value="Classical" id="classical">
+        <input type="text" name="title" id="title" placeholder="Concert Title">
       </div>
       <div>
-        <label for="blues">Blues</label>
-        <input type="checkbox" name="genre_list[]" value="Blues" id="blues">
+        <input type="text" name="url" id="url" placeholder="Video URL">
       </div>
       <div>
-        <label for="rock">Rock</label>
-        <input type="checkbox" name="genre_list[]" value="Rock" id="rock">
+        <input type="text" name="image" id="image-url" placeholder="Image URL">
       </div>
       <div>
-        <label for="pop">Pop</label>
-        <input type="checkbox" name="genre_list[]" value="Pop" id="pop">
+        <input type="text" name="artist" id="artist" placeholder="Artist Name">
       </div>
       <div>
-        <label for="hip-hop">Hip-hop</label>
-        <input type="checkbox" name="genre_list[]" value="Hip-hop" id="hip-hop">
+        <input type="number" name="year" id="year" placeholder="Year">
       </div>
       <div>
-        <label for="reggae">Reggae</label>
-        <input type="checkbox" name="genre_list[]" value="Reggae" id="reggae">
+        <input type="number" name="duration" id="duration" placeholder="Duration (minutes)">
       </div>
       <div>
-        <label for="jazz">Jazz</label>
-        <input type="checkbox" name="genre_list[]" value="Jazz" id="jazz">
+        <input type="text" name="location" id="location" placeholder="Location">
       </div>
-      <div>
-        <label for="country">Country</label>
-        <input type="checkbox" name="genre_list[]" value="Country" id="country">
-      </div>
-      <div>
-        <label for="world">World</label>
-        <input type="checkbox" name="genre_list[]" value="World" id="world">
-      </div>
-      <div>
-        <label for="electronic">Electronic</label>
-        <input type="checkbox" name="genre_list[]" value="Electronic" id="electronic">
-      </div>
-      <div>
-        <label for="metal">Metal</label>
-        <input type="checkbox" name="genre_list[]" value="Metal" id="metal">
-      </div>
-      <div>
-        <label for="indie">Indie</label>
-        <input type="checkbox" name="genre_list[]" value="Indie" id="indie">
-      </div>
-      <div>
-        <label for="r-and-b">R&B</label>
-        <input type="checkbox" name="genre_list[]" value="R&B" id="r-and-b">
-      </div>
-      <div>
-        <label for="latin">Latin</label>
-        <input type="checkbox" name="genre_list[]" value="Latin" id="latin">
-      </div>
-    </div>
-    <div>
-      <button class="btn-form">Submit</button>
-    </div>
-  </form>
 
-  {{#if messages.length}}
-  <p>
-    <ul>
-      {{#each messages}}
-      <li>{{this}}</li>
-      {{/each}}
+      <div class="left-align">
+        <label for="genre">Genre</label>
+        <select name="genre" id="genre">
+          <option value="Classical">Clasical</option>
+          <option value="Blues">Blues</option>
+          <option value="Rock">Rock</option>
+          <option value="Pop">Pop</option>
+          <option value="Hip-hop">Hip-hop</option>
+          <option value="Reggae">Reggae</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Country">Country</option>
+          <option value="World">World</option>
+          <option value="Electronic">Electronic</option>
+          <option value="Metal">Metal</option>
+          <option value="Indie">Indie</option>
+          <option value="R&B">R&B</option>
+          <option value="Latin">Latin</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn-form">Submit</button>
+      </div>
 
-    </ul>
-  </p>
-  {{/if}}
+    </form>
+  </section>
+</div>
+
+{{#if messages.length}}
+<p>
+  <ul>
+    {{#each messages}}
+    <li>{{this}}</li>
+    {{/each}}
+
+  </ul>
+</p>
+{{/if}}
 </section>

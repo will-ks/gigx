@@ -1,21 +1,21 @@
-
-$form-background: #E3E3E3;
-$red-button: #C81C1C;
-
+$form-background: #e3e3e3;
+$red-button: #c81c1c;
 
 .auth-form {
   width: 80%;
-
 }
 
 form {
   background-color: $form-background;
   width: 100%;
-  padding: 20px;
+  padding: 20px 60px;
 
+  label {
+    font-size: 0.5em;
+  }
 
   input {
-    width: 80%;
+    width: 100%;
     height: 30px;
   }
 
@@ -31,5 +31,5 @@ form {
     background-repeat: no-repeat;
     background-position: left;
     padding: 10px;
-}
+  }
 }

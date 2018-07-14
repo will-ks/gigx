@@ -16,7 +16,10 @@ const userSchema = new Schema({
   avatar: {
     type: String,
     default: '/images/avatar.svg'
-  }
+  },
+  stars: [{
+    type: Schema.Types.ObjectId
+  }]
 });
 
 const User = mongoose.model('User', userSchema);

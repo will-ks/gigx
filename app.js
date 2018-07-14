@@ -14,6 +14,7 @@ const flash = require('connect-flash');
 
 const index = require('./routes/index');
 const auth = require('./routes/users/auth');
+const profile = require('./routes/users/profile');
 const list = require('./routes/listings');
 
 // --- Instantiations --- //
@@ -64,6 +65,7 @@ app.use((req, res, next) => {
 // --- Routes --- //
 app.use('/', index);
 app.use('/users/auth', auth);
+app.use('/users/profile', profile);
 app.use('/listings', list);
 
 // -- 404 and error handler

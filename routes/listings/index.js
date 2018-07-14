@@ -6,16 +6,17 @@ const router = express.Router();
 const validator = require('validator');
 
 const Listing = require('../../models/listing');
+const requireLoggedInUser = require('../../middlewares/requireLoggedInUser');
 
 // --- Routes --- //
-router.get('/', (req, res, next) => {
+router.get('/', requireLoggedInUser, (req, res, next) => {
   const data = {
     messages: req.flash('error')
   };
   res.render('listings', data);
 });
 
-router.get('/view/:id', (req, res, next) => {
+router.get('/view/:id', requireLoggedInUser, (req, res, next) => {
   const listingId = req.params.id;
   // TODO: Check that id is valid ObjectID, redirect if not
   Listing.findById(listingId)
@@ -29,11 +30,11 @@ router.get('/view/:id', (req, res, next) => {
     .catch(next);
 });
 
-router.get('/add', (req, res, next) => {
+router.get('/add', requireLoggedInUser, (req, res, next) => {
   res.render('listings/add');
 });
 
-router.post('/add', (req, res, next) => {
+router.post('/add', requireLoggedInUser, (req, res, next) => {
   const { title, videoUrl, imageUrl, artist, year, duration, location, genre } = req.body;
 
   const data = { title, videoUrl, imageUrl, artist, year, duration, location, genre };

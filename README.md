@@ -96,6 +96,7 @@ User
  - avatar: { type: String, default: '/images/avatar.svg' }
  
 
+### LINKS
 
-
+[Trello (Bug tracker)](https://trello.com/b/N0AjLO6x/gigx)
 

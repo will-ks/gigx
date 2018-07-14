@@ -7,6 +7,7 @@ const validator = require('validator');
 
 const Listing = require('../../models/listing');
 const requireLoggedInUser = require('../../middlewares/requireLoggedInUser');
+const isValidObjectId = require('../../middlewares/isValidObjectId');
 
 // --- Routes --- //
 router.get('/', requireLoggedInUser, (req, res, next) => {
@@ -16,14 +17,14 @@ router.get('/', requireLoggedInUser, (req, res, next) => {
   res.render('listings', data);
 });
 
-router.get('/view/:id', requireLoggedInUser, (req, res, next) => {
+router.get('/view/:id', requireLoggedInUser, isValidObjectId, (req, res, next) => {
   const listingId = req.params.id;
   // TODO: Check that id is valid ObjectID, redirect if not
   Listing.findById(listingId)
     .then(listing => {
       if (!listing) {
-        req.flash('error', 'Invalid listing id');
-        res.redirect('/listings');
+        res.status(404);
+        return res.render('not-found');
       }
       res.render('listings/view', listing);
     })

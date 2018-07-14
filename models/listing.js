@@ -10,21 +10,22 @@ const listingSchema = new Schema({
     type: String,
     required: true
   },
-  url: {
+  videoUrl: {
     type: String,
     required: true
   },
-  image: {
+  imageUrl: {
     type: String
   },
   artist: {
     type: String,
     required: true
   },
-  genres: [{
+  genre: {
     type: String,
-    enum: genres
-  }],
+    enum: genres,
+    required: true
+  },
   year: {
     type: Number
   },

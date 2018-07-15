@@ -1,0 +1,15 @@
+.nav-container {
+  margin: 0 auto;
+  background-color: $red-button;
+  padding: 20px;
+  min-height: 70px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  font-size: 0.7em;
+}

@@ -24,10 +24,6 @@ router.get('/', requireLoggedInUser, (req, res, next) => {
           data[listing.genre] = { listings: [listing] };
         }
       });
-
-      console.log(data);
-
-      data.listings = listings;
       res.render('listings', data);
     })
     .catch(next);

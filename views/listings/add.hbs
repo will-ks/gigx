@@ -23,7 +23,6 @@
       <div>
         <input type="text" name="location" id="location" placeholder="Location">
       </div>
-
       <div class="left-align">
         <label for="genre">Genre</label>
         <select name="genre" id="genre" required>
@@ -46,19 +45,16 @@
       <div>
         <button class="btn-form">Submit</button>
       </div>
-
     </form>
   </section>
 </div>
-
 {{#if messages.length}}
-<p>
-  <ul>
-    {{#each messages}}
-    <li>{{this}}</li>
-    {{/each}}
-
-  </ul>
-</p>
+  <p>
+    <ul>
+      {{#each messages}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </p>
 {{/if}}
 </section>

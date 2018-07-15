@@ -13,17 +13,23 @@ const isValidObjectId = require('../../middlewares/isValidObjectId');
 // Listings
 router.get('/', requireLoggedInUser, (req, res, next) => {
   const data = {
-    messages: req.flash('error')
+    messages: req.flash('error'),
+    sections: []
   };
   Listing.find()
     .then(listings => {
       listings.forEach(listing => {
-        if (data[listing.genre]) {
-          data[listing.genre].listings.push(listing);
+        const objectIndex = data.sections.findIndex(element => {
+          return element.title === listing.genre;
+        });
+
+        if (objectIndex > -1) {
+          data.sections[objectIndex].listings.push(listing);
         } else {
-          data[listing.genre] = { listings: [listing] };
+          data.sections.push({ title: listing.genre, listings: [listing] });
         }
       });
+      console.log(data);
       res.render('listings', data);
     })
     .catch(next);

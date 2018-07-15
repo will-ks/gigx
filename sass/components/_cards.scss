@@ -1,0 +1,23 @@
+$phone-screen: 480px;
+$tablet-screen: 1024px;
+
+.card {
+  background-image: url("/images/yannis-papanastasopoulos-327476-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 33.33%;
+
+  @media (max-width: $phone-screen) {
+    width: 100%;
+  }
+  @media (max-width: $tablet-screen) {
+    width: 50%;
+  }
+
+  h2,
+  h3,
+  h4 {
+    color: white;
+  }
+}

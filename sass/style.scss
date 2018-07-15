@@ -12,6 +12,7 @@ body {
   font-family: "PT Sans", sans-serif;
   font-size: 2em;
   line-height: 147%;
+  background-color: black;
 }
 
 h1 {
@@ -167,7 +168,8 @@ li:hover {
 
 // --- Components --- //
 
-@import "forms/_forms";
+@import "components/_forms";
+@import "components/_cards";
 
 // --- Pages overrides --- //
 

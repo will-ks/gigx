@@ -1,0 +1,55 @@
+.nav-container {
+  margin: 0 auto;
+  background-color: $red-button;
+  padding: 20px;
+  min-height: 70px;
+}
+
+.hidden-bun {
+  display: none;
+}
+
+.burguer-icon {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.burguer-icon:hover {
+  cursor: pointer;
+}
+
+.top-burguer,
+.middle-burguer,
+.bottom-burguer {
+  transition: all 0.5s ease;
+  height: 5px;
+  width: 40px;
+  background-color: whitesmoke;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+
+.rotate-top {
+  transition: all 0.5s ease;
+  transform: rotate(45deg);
+}
+
+.rotate-bottom {
+  margin-top: -9px;
+  transition: all 0.5s ease;
+  transform: rotate(-45deg);
+}
+
+.menu-list {
+  background-color: $red-button;
+  color: white;
+  position: absolute;
+  top: 80px;
+  border-radius: 10px;
+}
+
+.menu-hidden {
+  display: none;
+  transition: all 0.5s ease;
+}

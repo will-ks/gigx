@@ -8,13 +8,20 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
   <link href="/stylesheets/libs/video-js.min.css" rel="stylesheet">
-
   <title>{{title}}</title>
 </head>
 
 <body>
   <nav>
     <div class="nav-container">
+      <a href="/users/auth?mode=signup">Sign Up</a>
+      <a href="/users/auth?mode=login">Login</a>
+      <a href="/listings">Explore</a>
+      <a href="">Profile page</a>
+      <a href="">Logout</a>
+  </nav>
+  <nav>
+    <div class="nav-container burguer hidden">
       <div class="open-burguer">
         <div class="burguer-container">
           <div class="burguer-icon" id="complete-icon">
@@ -29,6 +36,7 @@
   {{{body}}}
   <script src="/javascripts/libs/video.min.js"></script>
   <script src="/javascripts/libs/video-js-youtube.min.js"></script>
+  <script src="/javascripts/menu.js"></script>
 </body>
 
 </html>

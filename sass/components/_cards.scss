@@ -2,10 +2,11 @@ $phone-screen: 480px;
 $tablet-screen: 1024px;
 
 .card {
+  display: inline-block;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 33.33%;
+  width: 30%;
 
   @media (max-width: $phone-screen) {
     width: 100%;

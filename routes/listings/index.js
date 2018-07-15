@@ -17,6 +17,16 @@ router.get('/', requireLoggedInUser, (req, res, next) => {
   };
   Listing.find()
     .then(listings => {
+      listings.forEach(listing => {
+        if (data[listing.genre]) {
+          data[listing.genre].listings.push(listing);
+        } else {
+          data[listing.genre] = { listings: [listing] };
+        }
+      });
+
+      console.log(data);
+
       data.listings = listings;
       res.render('listings', data);
     })

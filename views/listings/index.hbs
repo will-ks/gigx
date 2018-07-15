@@ -1,6 +1,7 @@
 <h1>
   Hello worrrrldddd</h1>
-{{> card}} {{#if messages.length}}
+
+{{#each listings}} {{> card}}{{/each}} {{#if messages.length}}
 <p>
   <ul>
     {{#each messages}}

@@ -15,7 +15,12 @@ router.get('/', requireLoggedInUser, (req, res, next) => {
   const data = {
     messages: req.flash('error')
   };
-  res.render('listings', data);
+  Listing.find()
+    .then(listings => {
+      data.listings = listings;
+      res.render('listings', data);
+    })
+    .catch(next);
 });
 
 // View listing

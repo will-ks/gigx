@@ -1,7 +1,3 @@
-$phone-screen: 480px;
-$tablet-screen: 1024px;
-$desktop-screen: 1280px;
-
 .box-section {
   background-color: white;
   text-align: center;
@@ -9,23 +5,23 @@ $desktop-screen: 1280px;
 
 
   h2 {
-    color: #c81c1c;
+    color: $primary;
   }
 
   h1 {
-    color: #c81c1c;
+    color: $primary;
 
   }
 
   h4 {
-    color: #564d4d;
+    color: $secondary;
 
   }
 
   hr {
     width: 30%;
-    border: 3px solid #564d4d;
-    margin: 0 auto 30px auto;
+    border: 3px solid $secondary;
+    margin: 0 auto 70px auto;
   }
 
   img {
@@ -34,7 +30,7 @@ $desktop-screen: 1280px;
 
   .box-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 20px;
     padding-bottom: 30px;
     width: 100%;
@@ -42,13 +38,13 @@ $desktop-screen: 1280px;
   }
 
   .box {
-    margin-bottom: 40px;
+    margin-bottom: 70px;
     width: 100%;
 
-    @media (min-width: $tablet-screen) {
+    @media (min-width: $phone-screen) {
       width: 50%;
     }
-    @media (min-width: $desktop-screen) {
+    @media (min-width: $tablet-screen) {
       width: 30%;
     }
   }

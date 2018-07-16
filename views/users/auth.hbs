@@ -15,7 +15,7 @@
       </form>
       {{#if messages.length}}
         <p>
-          <ul>
+          <ul class="exception">
             {{#each messages}}
               <li>{{this}}</li>
             {{/each}}
@@ -39,11 +39,11 @@
       </form>
       {{#if messages.length}}
         <p>
-          <ul>
+          <ul class="exception">
             {{#each messages}}
               <li>{{this}}</li>
             {{/each}}
-          </ul>
+            </u>
         </p>
       {{/if}}
       <a href="/users/auth?mode=signup">Don't have an account?</a>

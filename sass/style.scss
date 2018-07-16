@@ -1,10 +1,16 @@
 // --- Variables --- //
-$primary: #c81c1c;
-// $secondary:
+$primary: #db0000;
+$secondary: #564d4d;
+$primary-dark: #831010;
 // $success:
 // $danger:
-// $warning:
+$warning: red;
 // $info:
+$light: #ffffff;
+
+$phone-screen: 481px;
+$tablet-screen: 769px;
+$desktop-screen: 1281px;
 
 
 // --- Reset --- //
@@ -14,7 +20,7 @@ $primary: #c81c1c;
 // --- Typography --- //
 
 body {
-  color: #111;
+  color: $light;
   font-family: "PT Sans", sans-serif;
   font-size: 16px;
   line-height: 147%;
@@ -89,10 +95,14 @@ a {
   }
 }
 
+.exception {
+  color: $warning;
+}
+
 // --- Components --- //
 
 @import "components/_forms";
-@import "components/_cards";
+@import "components/_listing-section";
 @import "components/_burguer-menu";
 @import "components/_desktop-menu";
 @import "components/_boxes";

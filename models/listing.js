@@ -15,7 +15,8 @@ const listingSchema = new Schema({
     required: true
   },
   imageUrl: {
-    type: String
+    type: String,
+    default: '/images/concert-default.jpeg'
   },
   artist: {
     type: String,

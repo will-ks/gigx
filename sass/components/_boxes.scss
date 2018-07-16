@@ -6,21 +6,21 @@ $desktop-screen: 1280px;
   background-color: white;
   text-align: center;
   padding-top: 30px;
-  color: #c81c1c;
   min-width: 100vh;
 
-  h1 {
-    font-size: 1.5em;
-  }
 
-  h3 {
+  h2 {
     color: #c81c1c;
-    font-size: 1em;
   }
 
-  p {
+  h1 {
+    color: #c81c1c;
+
+  }
+
+  h4 {
     color: #564d4d;
-    font-size: 0.8em;
+
   }
 
   hr {

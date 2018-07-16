@@ -1,5 +1,11 @@
 // --- Variables --- //
-$red-button: #c81c1c;
+$primary: #c81c1c;
+// $secondary:
+// $success:
+// $danger:
+// $warning:
+// $info:
+
 
 // --- Reset --- //
 
@@ -10,27 +16,48 @@ $red-button: #c81c1c;
 body {
   color: #111;
   font-family: "PT Sans", sans-serif;
-  font-size: 2em;
+  font-size: 16px;
   line-height: 147%;
   background-color: black;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2.5em;
   text-align: center;
   padding-top: 20px;
   margin-bottom: 20px;
 }
 
-// h2 {
-// }
+h2 {
+  color: white;
+  font-size: 2em;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
 
 h3 {
+  font-size: 1.7em;
   color: white;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 1.4em;
 }
 
 p {
   margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-color: white;
+  }
 }
 
 .hidden {

@@ -2,41 +2,37 @@
   <img src="/images/logo.png" id="home-logo">
   <h3 class="center">Watch your favorite concerts</h3>
   {{#if currentUser}}
-  <form action="users/auth/logout" method="POST" class="center">
-    <button>Logout</button>
-  </form>
+    <form action="users/auth/logout" method="POST" class="center">
+      <button>Logout</button>
+    </form>
   {{else}}
-  <form action="users/auth" method="GET" class="center">
-    <button>Sign up</button>
-  </form>
+    <form action="users/auth" method="GET" class="center">
+      <button>Sign up</button>
+    </form>
   {{/if}}
 </div>
-
 <section class="box-section">
   <h1>What’s on Gigx?</h1>
   <hr>
-
   <div class="box-container">
     <div class="box">
       <img src="images/icon1.svg" alt="" height="100">
-      <h3>Millions of Concerts</h3>
-      <p>There are millions of
-        <br> concerts on Gigx</p>
+      <h2>Millions of Concerts</h2>
+      <h4>There are millions of
+        <br> concerts on Gigx</h4>
     </div>
-
     <div class="box">
       <img src="images/icon2.svg" alt="" height="100">
-      <h3>Live Stream Concerts</h3>
-      <p>Watch live concerts
-        <br> of your favorite artists</p>
+      <h2>Live Stream Concerts</h2>
+      <h4>Watch live concerts
+        <br> of your favorite artists</h4>
     </div>
-
     <div class="box">
       <img src="images/icon3.svg" alt="" height="100">
-      <h3>Stream Live Everywhere</h3>
-      <p>Stream your own concert
+      <h2>Stream Live Everywhere</h2>
+      <h4>Stream your own concert
         <br> on any device
-      </p>
+        </p>
     </div>
   </div>
 </section>

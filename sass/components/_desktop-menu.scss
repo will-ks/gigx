@@ -1,6 +1,6 @@
 .nav-container {
   margin: 0 auto;
-  background-color: $red-button;
+  background-color: $primary;
   padding: 10px;
   min-height: 70px;
   display: flex;
@@ -18,9 +18,11 @@
   #navbar-links {
     display: flex;
 
-    a:hover {
-      text-decoration: underline;
+    a{
+      padding-top: 12px;
     }
+
+  
   }
 }
 
@@ -28,5 +30,5 @@ nav a {
   text-decoration: none;
   color: white;
   padding: 0px 12px;
-  font-size: 0.5em;
+  font-size: 1.2em;
 }

@@ -60,7 +60,7 @@ router.get('/add', requireLoggedInUser, (req, res, next) => {
 router.post('/add', requireLoggedInUser, (req, res, next) => {
   const { title, videoUrl, imageUrl, artist, year, duration, location, genre } = req.body;
 
-  const data = { title, videoUrl, imageUrl, artist, year, duration, location, genre };
+  const data = { title, videoUrl, imageUrl: imageUrl || undefined, artist, year, duration, location, genre };
 
   const today = new Date();
 
@@ -89,7 +89,7 @@ router.post('/add', requireLoggedInUser, (req, res, next) => {
   }
 
   // Check if video already exists
-  Listing.find({ videoUrl: videoUrl })
+  Listing.findOne({ videoUrl: videoUrl })
     .then(listing => {
       if (listing) {
         req.flash('error', 'We already have that video in our database');

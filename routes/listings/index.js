@@ -18,6 +18,7 @@ router.get('/', requireLoggedInUser, (req, res, next) => {
   };
   Listing.find()
     .then(listings => {
+      // Put each listing into the data.sections array, in objects separated by genre
       listings.forEach(listing => {
         const objectIndex = data.sections.findIndex(element => {
           return element.title === listing.genre;
@@ -29,7 +30,6 @@ router.get('/', requireLoggedInUser, (req, res, next) => {
           data.sections.push({ title: listing.genre, listings: [listing] });
         }
       });
-      console.log(data);
       res.render('listings', data);
     })
     .catch(next);

@@ -1,11 +1,13 @@
 #signup,
 #login {
   background-color: $light;
-  padding-top: 20px;
+  padding: 20px 20px;
   margin-top: 70px;
+  max-width: 380px;
 
   li {
     font-size: 1em;
+    list-style: none;
   }
 }
 

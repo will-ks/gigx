@@ -27,6 +27,13 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 // -- View engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+// Register handlebars helpers
+hbs.registerHelper('ifIn', function (elem, list, options) {
+  if (list.indexOf(elem) > -1) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 // Use partials
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 // -- Logging

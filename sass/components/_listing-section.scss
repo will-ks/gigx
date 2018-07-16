@@ -55,4 +55,11 @@
       opacity: 1;
     }
   }
+
+  i {
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.3)
+    }
+  }
 }

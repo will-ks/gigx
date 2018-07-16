@@ -17,6 +17,7 @@ router.post('/stars/add/:id', isValidObjectId, (req, res, next) => {
   User.findByIdAndUpdate(userId, { $addToSet: { stars: listingId } }, { new: true })
     .then(user => {
       req.session.currentUser = user;
+      // TODO: Fix this
       return res.redirect(req.originalUrl);
     })
     .catch(next);

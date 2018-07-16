@@ -51,7 +51,10 @@ router.get('/view/:id', requireLoggedInUser, isValidObjectId, (req, res, next) =
 
 // Add listing
 router.get('/add', requireLoggedInUser, (req, res, next) => {
-  res.render('listings/add');
+  const data = {
+    messages: req.flash('error')
+  };
+  res.render('listings/add', data);
 });
 
 router.post('/add', requireLoggedInUser, (req, res, next) => {
@@ -92,14 +95,12 @@ router.post('/add', requireLoggedInUser, (req, res, next) => {
         req.flash('error', 'We already have that video in our database');
         return res.redirect('/listings/add');
       }
-    })
-    .catch(next);
-
-  // Create listing
-  const newListing = new Listing(data);
-  newListing.save()
-    .then(listing => {
-      res.redirect('/listings/view/' + listing._id);
+      // Doesn't exist, create listing
+      const newListing = new Listing(data);
+      return newListing.save()
+        .then(listing => {
+          return res.redirect('/listings/view/' + listing._id);
+        });
     })
     .catch(next);
 });

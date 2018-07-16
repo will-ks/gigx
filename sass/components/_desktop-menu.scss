@@ -18,6 +18,9 @@
   #navbar-links {
     display: flex;
 
+    a:hover {
+      text-decoration: underline;
+    }
   }
 }
 

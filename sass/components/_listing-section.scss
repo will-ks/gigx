@@ -8,6 +8,8 @@
   width: 100%;
   min-height: 200px;
 
+
+
   @media (min-width: $phone-screen) and (max-width: $tablet-screen) {
     width: 50%;
     &:nth-of-type(even) {
@@ -35,6 +37,7 @@
   height: 100%;
   transition: all 0.3s;
   padding: 15px 25px;
+  box-shadow: 0px 0px 25px black;
 
   h2,h3,h4 {
     opacity: 0;

@@ -23,7 +23,6 @@ body {
   color: $light;
   font-family: "PT Sans", sans-serif;
   font-size: 16px;
-  line-height: 147%;
   background-color: black;
 }
 
@@ -81,6 +80,10 @@ a {
 
 .left-align {
   text-align: left;
+}
+
+.right-align {
+  text-align: right;
 }
 
 .section {

@@ -10,7 +10,8 @@
         {{else}}
           <a href="/listings">Explore</a>
           <a href="">Profile page</a>
-          <a href="">Logout</a>
+          <a href="" id="logout-link">Logout</a>
+          <form method='post' action='users/auth/logout' id='logout-form' style="display:none"></form>
       {{/unless}}
     </div>
 </nav>

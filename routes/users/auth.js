@@ -25,7 +25,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/signup', (req, res, next) => {
-  const email = req.body.email;
+  const email = req.body.email.trim();
   const password = req.body.password;
 
   // Check that a email and password have been provided
@@ -36,6 +36,14 @@ router.post('/signup', (req, res, next) => {
   // Check that email is a valid email
   if (!validator.isEmail(email)) {
     req.flash('error', 'Please provide a valid email');
+    return res.redirect('/users/auth?mode=signup');
+  }
+
+  // Check that password is strong
+  const strongRegex = new RegExp('^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})');
+
+  if (!strongRegex.test(password)) {
+    req.flash('error', 'Your password should be 6 characters or more, and include a mix of uppercase and lowercase characters, or numbers');
     return res.redirect('/users/auth?mode=signup');
   }
 
@@ -68,7 +76,7 @@ router.post('/signup', (req, res, next) => {
 // Login
 
 router.post('/login', (req, res, next) => {
-  const email = req.body.email;
+  const email = req.body.email.trim();
   const password = req.body.password;
 
   // Check that a email and password have been provided

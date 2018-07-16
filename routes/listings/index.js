@@ -51,40 +51,56 @@ router.get('/view/:id', requireLoggedInUser, isValidObjectId, (req, res, next) =
 
 // Add listing
 router.get('/add', requireLoggedInUser, (req, res, next) => {
-  res.render('listings/add');
+  const data = {
+    messages: req.flash('error')
+  };
+  res.render('listings/add', data);
 });
 
 router.post('/add', requireLoggedInUser, (req, res, next) => {
   const { title, videoUrl, imageUrl, artist, year, duration, location, genre } = req.body;
 
-  const data = { title, videoUrl, imageUrl, artist, year, duration, location, genre };
+  const data = { title, videoUrl, imageUrl: imageUrl || undefined, artist, year, duration, location, genre };
 
   const today = new Date();
 
+  // Check all required parameters have been supplied
   if (!title || !videoUrl || !artist || !genre) {
     req.flash('error', 'Please fill out all required fields');
     return res.redirect('/listings/add');
   }
 
+  // Check video URL is valid
   if (!validator.isURL(videoUrl)) {
     req.flash('error', 'Please check the video URL');
     return res.redirect('/listings/add');
   }
 
+  // Check image URL is valid
   if (imageUrl && !validator.isURL(imageUrl)) {
     req.flash('error', 'Please check the image URL');
     return res.redirect('/listings/add');
   }
 
+  // Check year is valid
   if (year && (year < 1900 || year > today.getFullYear())) {
     req.flash('error', 'Please check the year');
     return res.redirect('/listings/add');
   }
 
-  const newListing = new Listing(data);
-  newListing.save()
+  // Check if video already exists
+  Listing.findOne({ videoUrl: videoUrl })
     .then(listing => {
-      res.redirect('/listings/view/' + listing._id);
+      if (listing) {
+        req.flash('error', 'We already have that video in our database');
+        return res.redirect('/listings/add');
+      }
+      // Doesn't exist, create listing
+      const newListing = new Listing(data);
+      return newListing.save()
+        .then(listing => {
+          return res.redirect('/listings/view/' + listing._id);
+        });
     })
     .catch(next);
 });

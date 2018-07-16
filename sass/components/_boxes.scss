@@ -1,23 +1,55 @@
+$phone-screen: 480px;
+$tablet-screen: 1024px;
+$desktop-screen: 1280px;
+
 .box-section {
   background-color: white;
-  color: black;
   text-align: center;
+  padding-top: 30px;
+  color: #c81c1c;
 
-  h3,
   h1 {
+    font-size: 1.5em;
+  }
+
+  h3 {
     color: #c81c1c;
+    font-size: 1em;
+  }
+
+  p {
+    color: #564d4d;
+    font-size: 0.8em;
   }
 
   hr {
     width: 30%;
-    text-align: center;
-    border: 2px solid black;
+    border: 3px solid #564d4d;
+    margin: 0 auto 30px auto;
+  }
+
+  img {
     margin-bottom: 20px;
   }
 
-  .boxes {
+  .box-container {
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
+    padding-bottom: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .box {
+    margin-bottom: 40px;
+    width: 100%;
+
+    @media (min-width: $tablet-screen) {
+      width: 50%;
+    }
+    @media (min-width: $desktop-screen) {
+      width: 30%;
+    }
   }
 }

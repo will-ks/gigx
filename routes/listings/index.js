@@ -61,26 +61,41 @@ router.post('/add', requireLoggedInUser, (req, res, next) => {
 
   const today = new Date();
 
+  // Check all required parameters have been supplied
   if (!title || !videoUrl || !artist || !genre) {
     req.flash('error', 'Please fill out all required fields');
     return res.redirect('/listings/add');
   }
 
+  // Check video URL is valid
   if (!validator.isURL(videoUrl)) {
     req.flash('error', 'Please check the video URL');
     return res.redirect('/listings/add');
   }
 
+  // Check image URL is valid
   if (imageUrl && !validator.isURL(imageUrl)) {
     req.flash('error', 'Please check the image URL');
     return res.redirect('/listings/add');
   }
 
+  // Check year is valid
   if (year && (year < 1900 || year > today.getFullYear())) {
     req.flash('error', 'Please check the year');
     return res.redirect('/listings/add');
   }
 
+  // Check if video already exists
+  Listing.find({ videoUrl: videoUrl })
+    .then(listing => {
+      if (listing) {
+        req.flash('error', 'We already have that video in our database');
+        return res.redirect('/listings/add');
+      }
+    })
+    .catch(next);
+
+  // Create listing
   const newListing = new Listing(data);
   newListing.save()
     .then(listing => {

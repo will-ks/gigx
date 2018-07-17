@@ -18,7 +18,8 @@ const userSchema = new Schema({
     default: '/images/avatar.svg'
   },
   stars: [{
-    type: Schema.Types.ObjectId
+    type: Schema.Types.ObjectId,
+    ref: 'Listing'
   }]
 });
 

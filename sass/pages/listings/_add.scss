@@ -1,0 +1,13 @@
+.page.listings-add {
+  @include background-layout;
+  @include flex-layout;
+  background-image: url("/images/nick-karvounis-559285-unsplash.jpg");
+
+  a {
+    color: $secondary;
+  }
+
+  h1 {
+    color: $secondary;
+  }
+}

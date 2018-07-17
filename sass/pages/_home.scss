@@ -1,7 +1,6 @@
 .page.home {
-  @include background-layout;
+  @include background-layout("/images/gigx-home-background.jpg");
   @include flex-layout;
-  background-image: url("/images/gigx-home-background.jpg");
 }
 
 #home-logo {

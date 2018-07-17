@@ -5,7 +5,8 @@
   flex-direction: column;
 }
 
-@mixin background-layout { 
+@mixin background-layout($background-url) {
+  background-image: url($background-url);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

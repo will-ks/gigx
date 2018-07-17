@@ -1,7 +1,6 @@
 .page.auth {
-  @include background-layout;
+  @include background-layout("/images/edwin-andrade-158050-unsplash.jpg");
   @include flex-layout;
-  background-image: url("/images/edwin-andrade-158050-unsplash.jpg");
 
   a {
     color: black;

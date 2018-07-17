@@ -36,6 +36,7 @@ hbs.registerHelper('ifIn', function (elem, list, options) {
 });
 // Use partials
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
+hbs.localsAsTemplateData(app);
 // -- Logging
 const logDirectory = path.join(__dirname, 'log');
 // ensure log directory exists

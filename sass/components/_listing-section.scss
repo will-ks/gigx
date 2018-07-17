@@ -51,15 +51,22 @@
   &:hover {
     transform: scale(1.1);
 
-    h2, h3, h4 {
+    h2, h3, h4, i {
       opacity: 1;
     }
   }
 
   i {
+    opacity: 0;
     transition: all 0.3s;
+    color: #fff677;
+    cursor: pointer;
     &:hover {
       transform: scale(1.3)
+    }
+
+    &.remove-from-stars {
+      opacity: 1;
     }
   }
 }

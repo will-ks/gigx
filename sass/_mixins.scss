@@ -12,3 +12,8 @@
   background-position: center;
   min-height: calc(100vh - 70px);
 }
+
+@mixin container-layout {
+  margin-left: 20px;
+  padding-right: 20px;
+}

@@ -10,14 +10,14 @@
       <div class="right-align">
         {{#ifIn id @currentUser.stars}}
           <form method="post" action="/users/profile/stars/remove/{{this._id}}">
-            <button class="star-button">
-              <i class="fas fa-star"></i>
+            <button title="Remove from favorites" class="star-button">
+              <i class="fas fa-star remove-from-stars"></i>
             </button>
           </form>
           {{else}}
             <form method="post" action="/users/profile/stars/add/{{this._id}}">
-              <button class="star-button">
-                <i class="far fa-star"></i>
+              <button title="Add to favorites" class="star-button">
+                <i class="far fa-star add-to-stars"></i>
               </button>
             </form>
         {{/ifIn}}

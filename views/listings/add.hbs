@@ -1,5 +1,5 @@
 <div class="page listings-add">
-  <div class="container center add">
+  <div class="center add">
     <section id="add-listing" class="listing-form center">
       <h1>Add a listing</h1>
       <form action="/listings/add" method="POST">
@@ -50,13 +50,13 @@
     </section>
   </div>
   {{#if messages}}
-  <p>
-    <ul class="exception">
-      {{#each messages}}
-      <li>{{this}}</li>
-      {{/each}}
-    </ul>
-  </p>
+    <p>
+      <ul class="exception">
+        {{#each messages}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </p>
   {{/if}}
   </section>
 </div>

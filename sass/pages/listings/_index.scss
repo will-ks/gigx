@@ -1,0 +1,46 @@
+.page.listings {
+  @include container-layout;
+
+  h2 {
+    letter-spacing: 0.05em;
+  }
+
+  #search-bar {
+    padding-top:20px;
+  }
+
+  form {
+    padding: 0px;
+
+    button {
+      width: fit-content;
+      padding: 0px;
+    }
+
+
+
+    input[type=search] {
+      width: 120px;
+      transition: all 0.3s;
+      border-radius: 20px;
+      padding-top: 4px;
+      padding-left: 35px;
+      padding-right: 7px;
+      background: white url("/images/search-solid.svg") no-repeat 10px center;
+      background-size: 18px;
+      border: none;
+
+      &:focus {
+        width: 240px;
+        outline: none;
+      }
+
+      &::placeholder {
+        color: $secondary;
+      }
+    }
+
+  }
+}
+
+

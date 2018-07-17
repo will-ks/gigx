@@ -35,4 +35,20 @@ router.post('/stars/remove/:id', isValidObjectId, (req, res, next) => {
     .catch(next);
 });
 
+// Show stars
+router.get('/stars', (req, res, next) => {
+  const data = {
+    messages: req.flash('error'),
+    sections: []
+  };
+  User.findById(req.session.currentUser._id)
+    .populate('stars')
+    .then(result => {
+      console.log(result);
+      data.sections.push({ title: `My favourites`, listings: result.stars });
+      res.render('listings', data);
+    })
+    .catch(next);
+});
+
 module.exports = router;

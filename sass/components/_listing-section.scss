@@ -59,7 +59,7 @@
   i {
     opacity: 0;
     transition: all 0.3s;
-    color: #fff677;
+    color: white;
     cursor: pointer;
     &:hover {
       transform: scale(1.3)
@@ -67,6 +67,15 @@
 
     &.remove-from-stars {
       opacity: 1;
+    }
+  }
+
+  form {
+    padding: 0px;
+  
+    button {
+      width: fit-content;
+      padding: 0px;
     }
   }
 }

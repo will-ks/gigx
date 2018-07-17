@@ -1,60 +1,62 @@
-<div class="container center add">
-  <section id="add-listing" class="listing-form center">
-    <h1>Add a listing</h1>
-    <form action="/listings/add" method="POST">
-      <div>
-        <input type="text" name="title" id="title" placeholder="Concert Title" required>
-      </div>
-      <div>
-        <input type="url" name="videoUrl" id="url" placeholder="Video URL" required>
-      </div>
-      <div>
-        <input type="url" name="imageUrl" id="image-url" placeholder="Image URL">
-      </div>
-      <div>
-        <input type="text" name="artist" id="artist" placeholder="Artist Name" required>
-      </div>
-      <div>
-        <input type="number" name="year" id="year" placeholder="Year" maxlength="4" max="2018" min="1900">
-      </div>
-      <div>
-        <input type="number" name="duration" id="duration" placeholder="Duration (minutes)">
-      </div>
-      <div>
-        <input type="text" name="location" id="location" placeholder="Location">
-      </div>
-      <div class="left-align">
-        <label for="genre">Genre</label>
-        <select name="genre" id="genre" required>
-          <option value="Classical">Clasical</option>
-          <option value="Blues">Blues</option>
-          <option value="Rock">Rock</option>
-          <option value="Pop">Pop</option>
-          <option value="Hip-hop">Hip-hop</option>
-          <option value="Reggae">Reggae</option>
-          <option value="Jazz">Jazz</option>
-          <option value="Country">Country</option>
-          <option value="World">World</option>
-          <option value="Electronic">Electronic</option>
-          <option value="Metal">Metal</option>
-          <option value="Indie">Indie</option>
-          <option value="R&B">R&B</option>
-          <option value="Latin">Latin</option>
-        </select>
-      </div>
-      <div>
-        <button class="btn-form">Submit</button>
-      </div>
-    </form>
+<div class="page listings-add">
+  <div class="container center add">
+    <section id="add-listing" class="listing-form center">
+      <h1>Add a listing</h1>
+      <form action="/listings/add" method="POST">
+        <div>
+          <input type="text" name="title" id="title" placeholder="Concert Title" required>
+        </div>
+        <div>
+          <input type="url" name="videoUrl" id="url" placeholder="Video URL" required>
+        </div>
+        <div>
+          <input type="url" name="imageUrl" id="image-url" placeholder="Image URL">
+        </div>
+        <div>
+          <input type="text" name="artist" id="artist" placeholder="Artist Name" required>
+        </div>
+        <div>
+          <input type="number" name="year" id="year" placeholder="Year" maxlength="4" max="2018" min="1900">
+        </div>
+        <div>
+          <input type="number" name="duration" id="duration" placeholder="Duration (minutes)">
+        </div>
+        <div>
+          <input type="text" name="location" id="location" placeholder="Location">
+        </div>
+        <div class="left-align">
+          <label for="genre">Genre</label>
+          <select name="genre" id="genre" required>
+            <option value="Classical">Clasical</option>
+            <option value="Blues">Blues</option>
+            <option value="Rock">Rock</option>
+            <option value="Pop">Pop</option>
+            <option value="Hip-hop">Hip-hop</option>
+            <option value="Reggae">Reggae</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Country">Country</option>
+            <option value="World">World</option>
+            <option value="Electronic">Electronic</option>
+            <option value="Metal">Metal</option>
+            <option value="Indie">Indie</option>
+            <option value="R&B">R&B</option>
+            <option value="Latin">Latin</option>
+          </select>
+        </div>
+        <div>
+          <button class="btn-form">Submit</button>
+        </div>
+      </form>
+    </section>
+  </div>
+  {{#if messages}}
+  <p>
+    <ul class="exception">
+      {{#each messages}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </p>
+  {{/if}}
   </section>
 </div>
-{{#if messages}}
-<p>
-  <ul class="exception">
-    {{#each messages}}
-    <li>{{this}}</li>
-    {{/each}}
-  </ul>
-</p>
-{{/if}}
-</section>

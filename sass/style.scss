@@ -1,6 +1,5 @@
+// --- Mixins --- //
 @import "_mixins";
-
-//@import _variables
 
 // --- Variables --- //
 @import "_variables";
@@ -11,42 +10,9 @@
 
 // --- Typography --- //
 
-// @import _typography
 @import "_typography";
 
-// @import _layout
-
-.hidden {
-  display: none !important;
-}
-
-// .container {
-//   margin: 0 20px;
-// }
-
-// @todo refactor these out of html
-.center {
-  text-align: center;
-  margin: 0 auto;
-}
-
-// @todo refactor these out of html
-.left-align {
-  text-align: left;
-}
-
-.right-align {
-  text-align: right;
-}
-
-.section {
-  margin-bottom: 20px;
-  padding-top: 20px;
-}
-
-.exception {
-  color: $warning;
-}
+@import "_layout";
 
 // --- Components --- //
 
@@ -62,3 +28,9 @@
 @import "pages/_home";
 @import "pages/users/_auth";
 @import "pages/listings/_add";
+
+// --- Helpers --- //
+
+.hidden {
+  display: none !important;
+}

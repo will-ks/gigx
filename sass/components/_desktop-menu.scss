@@ -21,10 +21,14 @@
   #navbar-links {
     display: flex;
 
-    a{
+    a {
       padding-top: 12px;
     }
 
+    i {font-size: 1.5em;
+      padding-top: 12px;
+      padding-right: 12px;
+    }
   
   }
 }
@@ -34,4 +38,30 @@ nav a {
   color: white;
   padding: 0px 12px;
   font-size: 1.2em;
+}
+
+.dropdown-menu {
+  text-align: right;
+  background-color: $secondary;
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  padding: 20px;
+  box-shadow: 0px 10px 25px black;
+  transition: all 0.3s;
+  visibility: visible;
+  opacity: 1;
+
+  ul {
+    list-style: none;
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  &.not-shown {
+    visibility: hidden;
+    opacity: 0;
+  }
+
 }

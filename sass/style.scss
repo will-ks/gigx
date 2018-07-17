@@ -3,18 +3,7 @@
 //@import _variables
 
 // --- Variables --- //
-$primary: #db0000;
-$secondary: #564d4d;
-$primary-dark: #831010;
-// $success:
-// $danger:
-$warning: red;
-// $info:
-$light: #ffffff;
-
-$phone-screen: 481px;
-$tablet-screen: 769px;
-$desktop-screen: 1281px;
+@import "_variables";
 
 // --- Reset --- //
 

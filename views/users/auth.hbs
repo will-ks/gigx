@@ -1,5 +1,5 @@
 <div class="page auth">
-  <div class="container center">
+  <div class="center">
     <section id="signup" class="auth-form center hidden">
       <h1>Sign Up</h1>
       <form action="/users/auth/signup" method="POST">
@@ -14,13 +14,13 @@
         </div>
       </form>
       {{#if messages.length}}
-      <p>
-        <ul class="exception">
-          {{#each messages}}
-          <li>{{this}}</li>
-          {{/each}}
-        </ul>
-      </p>
+        <p>
+          <ul class="exception">
+            {{#each messages}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </p>
       {{/if}}
       <a href="/users/auth?mode=login">Already have an account?</a>
     </section>
@@ -38,13 +38,13 @@
         </div>
       </form>
       {{#if messages.length}}
-      <p>
-        <ul class="exception">
-          {{#each messages}}
-          <li>{{this}}</li>
-          {{/each}}
-          </u>
-      </p>
+        <p>
+          <ul class="exception">
+            {{#each messages}}
+              <li>{{this}}</li>
+            {{/each}}
+            </u>
+        </p>
       {{/if}}
       <a href="/users/auth?mode=signup">Don't have an account?</a>
     </section>

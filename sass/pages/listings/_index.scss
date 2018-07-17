@@ -1,0 +1,16 @@
+.page.listings {
+  @include container-layout;
+
+  h2 {
+    letter-spacing: 0.05em;
+  }
+
+  form {
+    padding: 0px;
+
+    button {
+      width: fit-content;
+      padding: 0px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@mixin flex-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin background-layout { 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: calc(100vh - 70px);
+}

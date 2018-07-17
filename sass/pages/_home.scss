@@ -1,0 +1,9 @@
+.page.home {
+  @include background-layout;
+  @include flex-layout;
+  background-image: url("/images/gigx-home-background.jpg");
+}
+
+#home-logo {
+  max-width: 50vw;
+}

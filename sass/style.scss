@@ -1,3 +1,7 @@
+@import "_mixins";
+
+//@import _variables
+
 // --- Variables --- //
 $primary: #db0000;
 $secondary: #564d4d;
@@ -12,12 +16,13 @@ $phone-screen: 481px;
 $tablet-screen: 769px;
 $desktop-screen: 1281px;
 
-
 // --- Reset --- //
 
 @import "_reset";
 
 // --- Typography --- //
+
+// @import _typography
 
 body {
   color: $light;
@@ -66,19 +71,23 @@ a {
   }
 }
 
+// @import _layout
+
 .hidden {
   display: none !important;
 }
 
-.container {
-  margin: 0 20px;
-}
+// .container {
+//   margin: 0 20px;
+// }
 
+// @todo refactor these out of html
 .center {
   text-align: center;
   margin: 0 auto;
 }
 
+// @todo refactor these out of html
 .left-align {
   text-align: left;
 }
@@ -87,7 +96,6 @@ a {
   margin-bottom: 20px;
   padding-top: 20px;
 }
-
 
 .exception {
   color: $warning;
@@ -104,5 +112,6 @@ a {
 // --- Pages overrides --- //
 
 @import "pages/_exception";
-@import "pages/_homepage";
-@import "pages/_authpage";
+@import "pages/_home";
+@import "pages/users/_auth";
+@import "pages/listings/_add";

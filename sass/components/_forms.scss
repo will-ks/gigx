@@ -43,11 +43,31 @@ form {
     padding: 10px;
     transition: all 0.2s;
     letter-spacing: 1.5px;
+<<<<<<< HEAD
     border: solid 1px $primary;
   }
+=======
+   
+    &:hover {
+      background-color: #ffffff;
+      color: $primary;
+    }
+>>>>>>> 1f5727c343d0693331fc069a0dc3dbb6c6495768
 
-  button:hover {
-    background-color: #ffffff;
-    color: $primary;
+    &:focus {
+      outline: none;
+    }
+  }
+
+}
+
+.star-button {
+  font-size:2em;
+  width: 30px;
+  background-color: transparent;
+  text-shadow: 0px 0px 5px black;
+
+  &:hover {
+    background-color: transparent;
   }
 }

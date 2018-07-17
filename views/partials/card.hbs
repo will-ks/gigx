@@ -3,7 +3,25 @@
     <div class="card-detail" style="background-image: url('{{this.imageUrl}}')">
       <h2>{{this.title}}</h2>
       <h3>{{this.artist}}</h3>
-      <h4>{{this.year}}</h4>
+      <h4>{{this.year}}&nbsp;</h4>
+      {{!-- <div class="right-align">
+        <i class="far fa-star"></i>
+      </div> --}}
+      <div class="right-align">
+        {{#ifIn id @currentUser.stars}}
+          <form method="post" action="/users/profile/stars/remove/{{this._id}}">
+            <button class="star-button">
+              <i class="fas fa-star"></i>
+            </button>
+          </form>
+          {{else}}
+            <form method="post" action="/users/profile/stars/add/{{this._id}}">
+              <button class="star-button">
+                <i class="far fa-star"></i>
+              </button>
+            </form>
+        {{/ifIn}}
+      </div>
     </div>
   </a>
 </div>

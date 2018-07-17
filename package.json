@@ -8,6 +8,7 @@
     "dev": "concurrently \"npm run sass\" \"nodemon -e js,json,hbs ./bin/www\""
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bcrypt": "^3.0.0",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.1",

@@ -11,14 +11,28 @@
         <a href="/users/auth?mode=login">Login</a>
         {{else}}
           <a href="/listings">Explore</a>
-          <a href="/listings/add">Add</a>
-          <a href="" id="logout-link">Logout</a>
+          <i class="fas fa-user-circle" id="profile-icon"></i>
+          <div class="dropdown-menu not-shown">
+            <ul>
+              <li>
+                <a href="/users/profile/stars">Favorites</a>
+              </li>
+              {{!-- <li>
+                <a href="">Profile</a>
+              </li> --}}
+              <li>
+                <a href="/listings/add">Add listing</a>
+              </li>
+              <li>
+                <a href="" id="logout-link">Log out</a>
+              </li>
+          </div>
           <form method='post' action='/users/auth/logout' id='logout-form' style="display:none"></form>
       {{/unless}}
     </div>
 </nav>
-<nav>
-  <div class="nav-container burguer hidden">
+<nav class="hidden">
+  <div class="nav-container burguer">
     <div class="open-burguer">
       <div class="burguer-container">
         <div class="burguer-icon" id="complete-icon">

@@ -4,16 +4,16 @@
       <h1>Add a listing</h1>
       <form action="/listings/add" method="POST">
         <div>
-          <input type="text" name="title" id="title" placeholder="Concert Title" required>
+          <input type="text" name="title" id="title" placeholder="Concert Title *" required>
         </div>
         <div>
-          <input type="url" name="videoUrl" id="url" placeholder="Video URL" required>
+          <input type="url" name="videoUrl" id="url" placeholder="Video URL *" required>
         </div>
         <div>
           <input type="url" name="imageUrl" id="image-url" placeholder="Image URL">
         </div>
         <div>
-          <input type="text" name="artist" id="artist" placeholder="Artist Name" required>
+          <input type="text" name="artist" id="artist" placeholder="Artist Name *" required>
         </div>
         <div>
           <input type="number" name="year" id="year" placeholder="Year" maxlength="4" max="2018" min="1900">
@@ -25,7 +25,7 @@
           <input type="text" name="location" id="location" placeholder="Location">
         </div>
         <div class="left-align">
-          <label for="genre">Genre</label>
+          <label for="genre">Genre *</label>
           <select name="genre" id="genre" required>
             <option value="Classical">Clasical</option>
             <option value="Blues">Blues</option>

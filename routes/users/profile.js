@@ -17,7 +17,8 @@ router.post('/stars/add/:id', isValidObjectId, (req, res, next) => {
   User.findByIdAndUpdate(userId, { $addToSet: { stars: listingId } }, { new: true })
     .then(user => {
       req.session.currentUser = user;
-      return res.redirect(req.originalUrl);
+      // TODO: Fix this
+      return res.redirect(req.headers.referer);
     })
     .catch(next);
 });
@@ -29,7 +30,7 @@ router.post('/stars/remove/:id', isValidObjectId, (req, res, next) => {
   User.findByIdAndUpdate(userId, { $pull: { stars: listingId } }, { new: true })
     .then(user => {
       req.session.currentUser = user;
-      return res.redirect(req.originalUrl);
+      return res.redirect(req.headers.referer);
     })
     .catch(next);
 });

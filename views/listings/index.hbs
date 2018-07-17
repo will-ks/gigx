@@ -1,6 +1,6 @@
 <div class="page listings">
-  <form id="search-bar">
-    <input type="search" placeholder="Search">
+  <form id="search-bar" action="/listings/search" method="POST">
+    <input type="search" placeholder="Search" name="search">
   </form>
   {{#each sections}} {{> listingSection}} {{/each}}
 </div>

@@ -105,4 +105,20 @@ router.post('/add', requireLoggedInUser, (req, res, next) => {
     .catch(next);
 });
 
+// Search listings
+
+router.post('/search', requireLoggedInUser, (req, res, next) => {
+  const searchTerm = req.body.search.trim();
+  const data = {
+    messages: req.flash('error'),
+    sections: []
+  };
+  Listing.find({ $text: { $search: searchTerm } })
+    .then(results => {
+      data.sections.push({ title: `Search results for "${searchTerm}"`, listings: results });
+      res.render('listings', data);
+    })
+    .catch(next);
+});
+
 module.exports = router;

@@ -1,6 +1,10 @@
 .page.auth {
-  @include background-layout("/images/edwin-andrade-158050-unsplash.jpg");
+  @include background-layout("/images/form-768.jpg");
   @include flex-layout;
+
+  @media (min-width: $tablet-screen) {
+    @include background-layout("/images/form-1280.jpg");
+  }
 
   a {
     color: black;

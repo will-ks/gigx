@@ -1,6 +1,11 @@
 .page.home {
-  @include background-layout("/images/gigx-home-background.jpg");
+  @include background-layout("/images/home-768.jpg");
   @include flex-layout;
+
+  @media (min-width: $tablet-screen) {
+    @include background-layout("/images/home-1280.jpg");
+  }
+
 }
 
 #home-logo {

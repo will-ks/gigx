@@ -1,6 +1,11 @@
 .page.listings-add {
-  @include background-layout("/images/nick-karvounis-559285-unsplash.jpg");
+  @include background-layout("/images/form-768.jpg");
   @include flex-layout;
+
+  @media (min-width: $tablet-screen) {
+    @include background-layout("/images/form-1280.jpg");
+  }
+
 
   a {
     color: $secondary;

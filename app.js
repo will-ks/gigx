@@ -1,6 +1,7 @@
 'use strict';
 
 // --- Dependencies --- //
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -22,8 +23,7 @@ const app = express();
 
 // --- Configurations --- //
 // -- Database
-const dbName = 'gigx';
-mongoose.connect(`mongodb://localhost/${dbName}`);
+mongoose.connect(process.env.MONGODB_URI);
 // -- View engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

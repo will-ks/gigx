@@ -7,12 +7,17 @@
     "sass": "sass --watch sass/style.scss:public/stylesheets/style.css",
     "dev": "concurrently \"npm run sass\" \"nodemon -e js,json,hbs ./bin/www\""
   },
+  "engines": {
+    "node": "v10.5.0",
+    "npm": "6.1.0"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "^3.0.0",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.1",
     "debug": "~2.6.9",
+    "dotenv": "^6.0.0",
     "express": "~4.16.0",
     "express-session": "^1.15.6",
     "hbs": "~4.0.1",

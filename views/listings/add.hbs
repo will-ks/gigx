@@ -2,7 +2,7 @@
   <div class="center add">
     <section id="add-listing" class="listing-form center">
       <h1>Add a listing</h1>
-      <form action="/listings/add" method="POST">
+      <form action="/listings/add" method="POST" enctype="multipart/form-data">
         <div class="form-item">
           <input type="text" name="title" id="title" placeholder="Concert Title *" required>
         </div>
@@ -10,7 +10,8 @@
           <input type="url" name="videoUrl" id="url" placeholder="Video URL *" required>
         </div>
         <div class="form-item">
-          <input type="url" name="imageUrl" id="image-url" placeholder="Image URL">
+          <label for="image-file">Image</label>
+          <input type="file" name="imageFile" id="image-file" placeholder="Image File">
         </div>
         <div class="form-item">
           <input type="text" name="artist" id="artist" placeholder="Artist Name *" required>
@@ -58,13 +59,13 @@
     </section>
   </div>
   {{#if messages}}
-  <p>
-    <ul class="exception">
-      {{#each messages}}
-      <li>{{this}}</li>
-      {{/each}}
-    </ul>
-  </p>
+    <p>
+      <ul class="exception">
+        {{#each messages}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </p>
   {{/if}}
   </section>
 </div>

@@ -36,18 +36,23 @@ router.get('/', requireLoggedInUser, (req, res, next) => {
 });
 
 // View listing
-router.get('/view/:id', requireLoggedInUser, isValidObjectId, (req, res, next) => {
-  const listingId = req.params.id;
-  Listing.findById(listingId)
-    .then(listing => {
-      if (!listing) {
-        res.status(404);
-        return res.render('not-found');
-      }
-      res.render('listings/view', listing);
-    })
-    .catch(next);
-});
+router.get(
+  '/view/:id',
+  requireLoggedInUser,
+  isValidObjectId,
+  (req, res, next) => {
+    const listingId = req.params.id;
+    Listing.findById(listingId)
+      .then(listing => {
+        if (!listing) {
+          res.status(404);
+          return res.render('not-found');
+        }
+        res.render('listings/view', listing);
+      })
+      .catch(next);
+  }
+);
 
 // Add listing
 router.get('/add', requireLoggedInUser, (req, res, next) => {
@@ -58,9 +63,31 @@ router.get('/add', requireLoggedInUser, (req, res, next) => {
 });
 
 router.post('/add', requireLoggedInUser, (req, res, next) => {
-  const { title, videoUrl, imageUrl, artist, year, duration, location, genre } = req.body;
+  const {
+    title,
+    videoUrl,
+    imageUrl,
+    artist,
+    year,
+    duration,
+    location,
+    genre,
+    live,
+    dateTime
+  } = req.body;
 
-  const data = { title, videoUrl, imageUrl: imageUrl || undefined, artist, year, duration, location, genre };
+  const data = {
+    title,
+    videoUrl,
+    imageUrl: imageUrl || undefined,
+    artist,
+    year,
+    duration,
+    location,
+    genre,
+    live: live === 'on',
+    dateTime
+  };
 
   const today = new Date();
 
@@ -97,10 +124,9 @@ router.post('/add', requireLoggedInUser, (req, res, next) => {
       }
       // Doesn't exist, create listing
       const newListing = new Listing(data);
-      return newListing.save()
-        .then(listing => {
-          return res.redirect('/listings/view/' + listing._id);
-        });
+      return newListing.save().then(listing => {
+        return res.redirect('/listings/view/' + listing._id);
+      });
     })
     .catch(next);
 });
@@ -115,10 +141,26 @@ router.post('/search', requireLoggedInUser, (req, res, next) => {
   };
   Listing.find({ $text: { $search: searchTerm } })
     .then(results => {
-      data.sections.push({ title: `Search results for "${searchTerm}"`, listings: results });
+      data.sections.push({
+        title: `Search results for "${searchTerm}"`,
+        listings: results
+      });
       res.render('listings', data);
     })
     .catch(next);
 });
 
+router.get('/live', requireLoggedInUser, (req, res, next) => {
+  const data = {
+    messages: req.flash('error'),
+    sections: []
+  };
+  Listing.find({ live: true })
+    .then(results => {
+      const section = { title: 'Upcoming live shows', listings: results };
+      data.sections.push(section);
+      res.render('listings', data);
+    })
+    .catch(next);
+});
 module.exports = router;

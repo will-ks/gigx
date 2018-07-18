@@ -3,7 +3,22 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const genres = ['Classical', 'Blues', 'Rock', 'Pop', 'Hip-hop', 'Reggae', 'Jazz', 'Country', 'World', 'Electronic', 'Metal', 'Indie', 'R&B', 'Latin'];
+const genres = [
+  'Classical',
+  'Blues',
+  'Rock',
+  'Pop',
+  'Hip-hop',
+  'Reggae',
+  'Jazz',
+  'Country',
+  'World',
+  'Electronic',
+  'Metal',
+  'Indie',
+  'R&B',
+  'Latin'
+];
 
 const listingSchema = new Schema({
   title: {
@@ -35,6 +50,12 @@ const listingSchema = new Schema({
   },
   location: {
     type: String
+  },
+  live: {
+    type: Boolean
+  },
+  dateTime: {
+    type: Date
   }
 });
 

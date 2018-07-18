@@ -44,19 +44,27 @@
           </select>
         </div>
         <div>
+          <label for="live">Live?</label>
+          <input type="checkbox" name="live">
+        </div>
+        <div>
+          <label for="dateTime">Date and time</label>
+          <input type="datetime-local" name="dateTime">
+        </div>
+        <div>
           <button class="btn-form">Submit</button>
         </div>
       </form>
     </section>
   </div>
   {{#if messages}}
-    <p>
-      <ul class="exception">
-        {{#each messages}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
-    </p>
+  <p>
+    <ul class="exception">
+      {{#each messages}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </p>
   {{/if}}
   </section>
 </div>

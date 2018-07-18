@@ -1,14 +1,15 @@
 <div class="page home">
   <img src="/images/logo.png" id="home-logo">
   <h3 class="center">Watch your favorite concerts</h3>
+
   {{#if currentUser}}
-    <form action="users/auth/logout" method="POST" class="center">
-      <button>Logout</button>
-    </form>
+  <form action="users/auth/logout" method="POST" class="center">
+    <button>Logout</button>
+  </form>
   {{else}}
-    <form action="users/auth" method="GET" class="center">
-      <button>Sign up</button>
-    </form>
+  <form action="users/auth" method="GET" class="center">
+    <button>Sign up</button>
+  </form>
   {{/if}}
 </div>
 <section class="box-section">

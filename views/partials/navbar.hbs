@@ -10,29 +10,29 @@
         <input type="search" placeholder="Search" name="search">
       </form>
       {{#unless currentUser}}
-      <a href="/users/auth?mode=signup">Sign Up</a>
-      <a href="/users/auth?mode=login">Login</a>
-      {{else}}
-      <a href="/listings">Explore</a>
-      <a href="/listings/live">Live</a>
-      <i class="fas fa-user-circle" id="profile-icon"></i>
-      <div class="dropdown-menu not-shown">
-        <ul>
-          <li>
-            <a href="/users/profile/stars">Favorites</a>
-          </li>
-          {{!--
+        <a href="/users/auth?mode=signup">Signup</a>
+        <a href="/users/auth?mode=login">Login</a>
+        {{else}}
+          <a href="/listings">Explore</a>
+          <a href="/listings/live">Live</a>
+          <i class="fas fa-user-circle" id="profile-icon"></i>
+          <div class="dropdown-menu not-shown">
+            <ul>
+              <li>
+                <a href="/users/profile/stars">Favorites</a>
+              </li>
+              {{!--
           <li>
             <a href="">Profile</a>
           </li> --}}
-          <li>
-            <a href="/listings/add">Add listing</a>
-          </li>
-          <li>
-            <a href="" id="logout-link">Log out</a>
-          </li>
-      </div>
-      <form method='post' action='/users/auth/logout' id='logout-form' style="display:none"></form>
+              <li>
+                <a href="/listings/add">Add listing</a>
+              </li>
+              <li>
+                <a href="" id="logout-link">Log out</a>
+              </li>
+          </div>
+          <form method='post' action='/users/auth/logout' id='logout-form' style="display:none"></form>
       {{/unless}}
     </div>
 </nav>

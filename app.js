@@ -34,6 +34,14 @@ hbs.registerHelper('ifIn', function (elem, list, options) {
   }
   return options.inverse(this);
 });
+hbs.registerHelper('eq', function (lvalue, rvalue, options) {
+  if (arguments.length < 3) { throw new Error('Handlebars Helper equal needs 2 parameters'); };
+  if (lvalue != rvalue) {
+    return options.inverse(this);
+  } else {
+    return options.fn(this);
+  }
+});
 // Use partials
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 hbs.localsAsTemplateData(app);

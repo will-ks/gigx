@@ -3,13 +3,13 @@
     <section id="signup" class="auth-form center hidden">
       <h1>Sign Up</h1>
       <form action="/users/auth/signup" method="POST">
-        <div>
+        <div class="form-item">
           <input type="email" name="email" id="signup-email" placeholder="Email" required>
         </div>
-        <div>
+        <div class="form-item">
           <input type="password" name="password" id="signup-password" placeholder="Password" required>
         </div>
-        <div>
+        <div class="form-item">
           <button class="btn-form">Sign up</button>
         </div>
       </form>
@@ -22,18 +22,19 @@
           </ul>
         </p>
       {{/if}}
-      <a href="/users/auth?mode=login">Already have an account?</a>
+      <a href="/users/auth?mode=login">Already have an account?
+        <br>Click here</a>
     </section>
     <section id="login" class="auth-form center hidden">
       <h1>Login</h1>
       <form action="/users/auth/login" method="POST">
-        <div>
+        <div class="form-item">
           <input type="email" name="email" id="login-email" placeholder="Email" required>
         </div>
-        <div>
+        <div class="form-item">
           <input type="password" name="password" id="login-password" placeholder="Password" required>
         </div>
-        <div>
+        <div class="form-item">
           <button class="btn-form">Login</button>
         </div>
       </form>
@@ -46,7 +47,8 @@
             </u>
         </p>
       {{/if}}
-      <a href="/users/auth?mode=signup">Don't have an account?</a>
+      <a href="/users/auth?mode=signup">Don't have an account?
+        <br>Click here</a>
     </section>
   </div>
   <script src="/javascripts/auth.js"></script>

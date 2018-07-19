@@ -99,7 +99,7 @@ router.post('/add', requireLoggedInUser, uploadCloud.single('imageFile'), (req, 
   }
 
   // Check video URL is valid
-  if (!validator.isURL(videoUrl)) {
+  if (!validator.isURL(videoUrl, { protocols: ['http', 'https', 'rtmp'] })) {
     req.flash('error', 'Please check the video URL');
     return res.redirect('/listings/add');
   }

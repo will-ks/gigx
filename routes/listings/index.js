@@ -80,7 +80,7 @@ router.post('/add', requireLoggedInUser, uploadCloud.single('imageFile'), (req, 
   const data = {
     title,
     videoUrl,
-    imageUrl: req.file.url || undefined,
+    imageUrl: req.file ? req.file.url : undefined,
     artist,
     year,
     duration,

@@ -3,7 +3,13 @@
     <div class="card-detail" style="background-image: url('{{this.imageUrl}}')">
       <h2>{{this.title}}</h2>
       <h3>{{this.artist}}</h3>
-      <h4>{{this.year}}&nbsp;</h4>
+      {{#unless this.live}}
+        <h4>{{this.year}}&nbsp;</h4>
+      {{/unless}}
+      {{#if this.live}}
+        <h4>
+          <i class="fas fa-circle"></i> Live!</h4>
+      {{/if}}
       {{!-- <div class="right-align">
         <i class="far fa-star"></i>
       </div> --}}

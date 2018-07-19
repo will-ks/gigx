@@ -20,6 +20,8 @@ const genres = [
   'Latin'
 ];
 
+const sources = ['Youtube', 'HLS'];
+
 const listingSchema = new Schema({
   title: {
     type: String,
@@ -56,6 +58,11 @@ const listingSchema = new Schema({
   },
   dateTime: {
     type: Date
+  },
+  source: {
+    type: String,
+    enum: sources,
+    default: 'Youtube'
   }
 });
 

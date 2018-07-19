@@ -6,13 +6,13 @@
       </a>
     </div>
     <div id="navbar-links">
-      <form id="search-bar" action="/listings/search" method="POST">
-        <input type="search" placeholder="Search" name="search">
-      </form>
       {{#unless currentUser}}
         <a href="/users/auth?mode=signup">Signup</a>
         <a href="/users/auth?mode=login">Login</a>
         {{else}}
+          <form id="search-bar" action="/listings/search" method="POST">
+            <input type="search" placeholder="Search" name="search">
+          </form>
           <a href="/listings">Explore</a>
           <a href="/listings/live">Live</a>
           <i class="fas fa-user-circle" id="profile-icon"></i>

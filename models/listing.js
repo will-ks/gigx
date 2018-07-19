@@ -20,7 +20,7 @@ const genres = [
   'Latin'
 ];
 
-const sources = ['Youtube', 'HLS'];
+const sources = ['Youtube', 'HLS', 'RTMP'];
 
 const listingSchema = new Schema({
   title: {

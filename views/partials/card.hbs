@@ -4,28 +4,27 @@
       <h2>{{this.title}}</h2>
       <h3>{{this.artist}}</h3>
       {{#unless this.live}}
-        <h4>{{this.year}}&nbsp;</h4>
-      {{/unless}}
-      {{#if this.live}}
-        <h4>
-          <i class="fas fa-circle"></i> Live!</h4>
-      {{/if}}
-      {{!-- <div class="right-align">
+      <h4>{{this.year}}&nbsp;</h4>
+      {{/unless}} {{#if this.live}}
+      <h4>
+        <i class="fas fa-circle" id="live-icon"></i> Live!</h4>
+      {{/if}} {{!--
+      <div class="right-align">
         <i class="far fa-star"></i>
       </div> --}}
       <div class="right-align">
         {{#ifIn id @currentUser.stars}}
-          <form method="post" action="/users/profile/stars/remove/{{this._id}}">
-            <button title="Remove from favorites" class="star-button">
-              <i class="fas fa-star remove-from-stars"></i>
-            </button>
-          </form>
-          {{else}}
-            <form method="post" action="/users/profile/stars/add/{{this._id}}">
-              <button title="Add to favorites" class="star-button">
-                <i class="far fa-star add-to-stars"></i>
-              </button>
-            </form>
+        <form method="post" action="/users/profile/stars/remove/{{this._id}}">
+          <button title="Remove from favorites" class="star-button">
+            <i class="fas fa-star remove-from-stars"></i>
+          </button>
+        </form>
+        {{else}}
+        <form method="post" action="/users/profile/stars/add/{{this._id}}">
+          <button title="Add to favorites" class="star-button">
+            <i class="far fa-star add-to-stars"></i>
+          </button>
+        </form>
         {{/ifIn}}
       </div>
     </div>

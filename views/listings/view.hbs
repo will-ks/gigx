@@ -1,10 +1,25 @@
-<div class="page listings-view">
-  <video id="gigx-video" class="video-js vjs-big-play-centered vjs-16-9" controls preload="auto" poster="{{this.imageUrl}}"
-    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{this.videoUrl}}"}] }'>
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
-  </video>
-</div>
+{{#eq this.source "Youtube"}}
+  <div class="page listings-view">
+    <video id="gigx-video" class="video-js vjs-big-play-centered vjs-16-9" controls preload="auto" poster="{{this.imageUrl}}"
+      data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{this.videoUrl}}"}] }'>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+{{/eq}}
+{{#eq this.source "HLS"}}
+  <div class="page listings-view">
+    <video id="gigx-video" class="video-js vjs-big-play-centered vjs-16-9" controls preload="auto" poster="{{this.imageUrl}}"
+      data-setup='{ "sources": [{ "type": "application/x-mpegURL", "src": "{{this.videoUrl}}"}] }'>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+  <script src="/javascripts/libs/videojs-contrib-hls.min.js"></script>
+  <script src="/javascripts/libs/videojs-dash.min.js"></script>
+{{/eq}}
 <script src="/javascripts/view.js"></script>

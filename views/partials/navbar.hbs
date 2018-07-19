@@ -13,24 +13,48 @@
           <form id="search-bar" action="/listings/search" method="POST">
             <input type="search" placeholder="Search" name="search">
           </form>
-          <a href="/listings">Explore</a>
-          <a href="/listings/live">Live</a>
+          <a href="/listings" id="explore-link">Explore</a>
+          <div class="dropdown-menu not-shown" id="explore-dropdown">
+            <ul>
+              <li>
+                <a href="/listings">Featured</a>
+              </li>
+              <li>
+                <a href="/listings/live">Live</a>
+              </li>
+            </ul>
+            <hr>
+            <ul>
+              <li>
+                <a href="/listings/genres/Rock">Rock</a>
+              </li>
+              <li>
+                <a href="/listings/genres/Pop">Pop</a>
+              </li>
+              <li>
+                <a href="/listings/genres/Hip-hop">Hip-hop</a>
+              </li>
+              <li>
+                <a href="/listings/genres/Reggae">Reggae</a>
+              </li>
+              <li>
+                <a href="/listings/genres/Electronic">Electronic</a>
+              </li>
+            </ul>
+          </div>
           <i class="fas fa-user-circle" id="profile-icon"></i>
-          <div class="dropdown-menu not-shown">
+          <div class="dropdown-menu not-shown" id="profile-dropdown">
             <ul>
               <li>
                 <a href="/users/profile/stars">Favorites</a>
               </li>
-              {{!--
-          <li>
-            <a href="">Profile</a>
-          </li> --}}
               <li>
                 <a href="/listings/add">Add listing</a>
               </li>
               <li>
                 <a href="" id="logout-link">Log out</a>
               </li>
+            </ul>
           </div>
           <form method='post' action='/users/auth/logout' id='logout-form' style="display:none"></form>
       {{/unless}}

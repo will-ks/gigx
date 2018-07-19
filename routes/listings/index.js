@@ -151,6 +151,8 @@ router.post('/search', requireLoggedInUser, (req, res, next) => {
     .catch(next);
 });
 
+// Live listings
+
 router.get('/live', requireLoggedInUser, (req, res, next) => {
   const data = {
     messages: req.flash('error'),
@@ -160,6 +162,26 @@ router.get('/live', requireLoggedInUser, (req, res, next) => {
     .then(results => {
       const section = { title: 'Upcoming live shows', listings: results };
       data.sections.push(section);
+      res.render('listings', data);
+    })
+    .catch(next);
+});
+
+// Specific genres
+
+router.get('/genres/:id', requireLoggedInUser, (req, res, next) => {
+  if (!Listing.schema.paths.genre.enumValues.includes(req.params.id)) {
+    res.status(404);
+    return res.render('not-found');
+  }
+
+  const data = {
+    messages: req.flash('error'),
+    sections: []
+  };
+  Listing.find({ genre: req.params.id })
+    .then(listings => {
+      data.sections.push({ title: req.params.id, listings: listings });
       res.render('listings', data);
     })
     .catch(next);

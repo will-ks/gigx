@@ -63,6 +63,10 @@ const listingSchema = new Schema({
     type: String,
     enum: sources,
     default: 'Youtube'
+  },
+  featured: {
+    type: Boolean,
+    default: false
   }
 });
 

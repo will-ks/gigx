@@ -4,6 +4,7 @@
 const express = require('express');
 const router = express.Router();
 const validator = require('validator');
+const uploadCloud = require('../../middlewares/cloudinary');
 
 const Listing = require('../../models/listing');
 const requireLoggedInUser = require('../../middlewares/requireLoggedInUser');
@@ -62,7 +63,7 @@ router.get('/add', requireLoggedInUser, (req, res, next) => {
   res.render('listings/add', data);
 });
 
-router.post('/add', requireLoggedInUser, (req, res, next) => {
+router.post('/add', requireLoggedInUser, uploadCloud.single('imageFile'), (req, res, next) => {
   const {
     title,
     videoUrl,
@@ -79,7 +80,7 @@ router.post('/add', requireLoggedInUser, (req, res, next) => {
   const data = {
     title,
     videoUrl,
-    imageUrl: imageUrl || undefined,
+    imageUrl: req.file.url || undefined,
     artist,
     year,
     duration,

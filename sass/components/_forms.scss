@@ -33,6 +33,9 @@ form {
     font-size: 1em;
     width: 100%;
     height: 43px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 3px;
   }
 
   input[type="datetime-local"] {
@@ -41,9 +44,6 @@ form {
 
   .form-item {
     margin-top: 10px;
-    padding-left: 13px;
-    padding-right: 13px;
-    padding-top: 3px;
     text-align: left;
   }
 

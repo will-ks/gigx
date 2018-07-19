@@ -74,7 +74,8 @@ router.post('/add', requireLoggedInUser, uploadCloud.single('imageFile'), (req, 
     location,
     genre,
     live,
-    dateTime
+    dateTime,
+    source
   } = req.body;
 
   const data = {
@@ -87,7 +88,8 @@ router.post('/add', requireLoggedInUser, uploadCloud.single('imageFile'), (req, 
     location,
     genre,
     live: live === 'on',
-    dateTime
+    dateTime,
+    source
   };
 
   const today = new Date();

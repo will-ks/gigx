@@ -23,7 +23,6 @@
   <script src="/javascripts/libs/videojs-dash.min.js"></script>
 {{/eq}}
 {{#eq this.source "RTMP"}}
-  FOO!
   <div class="page listings-view">
     <video id="gigx-video" class="video-js vjs-big-play-centered vjs-16-9" controls preload="auto" poster="{{this.imageUrl}}"
       data-setup='{"sources": [{ "type": "rtmp/mp4", "src": "{{this.videoUrl}}"}] }'>

@@ -80,13 +80,12 @@ router.post('/signup', (req, res, next) => {
 
       transporter
         .sendMail({
-          from: ''Gigx 👻' <gigxapp@gmail.com>',
+          from: 'Gigx 👻 <gigxapp@gmail.com>',
           to: email,
           subject: 'Your Gigx account has been created',
           text:
             'Welcome to gigx! Everything is setup to view all the concerts from your favourite artists. Remember you can watch live concerts and previous ones. Also keep in mind you can upload your favourite classic concerts to our page. Take a look to our live concerts clicking here. Rock on!',
-          html:
-            '<h1>Welcome to Gigx</h1> <p>Everything is setup to view all the concerts from your favourite artists. Remember you can watch live concerts and previous ones. Also keep in mind you can upload your favourite classic concerts to our page.<p> <p>Take a look to our live concerts <a href='https://gig.herokuapp.com'>clicking here.<a> Rock on!<p>'
+          html: `<h1>Welcome to Gigx</h1> <p>Everything is setup to view all the concerts from your favourite artists. Remember you can watch live concerts and previous ones. Also keep in mind you can upload your favourite classic concerts to our page.<p> <p>Take a look to our live concerts <a href='https://gig.herokuapp.com'>clicking here.<a> Rock on!<p>`
         })
         .then(info => console.log(info))
         .catch(error => console.log(error));

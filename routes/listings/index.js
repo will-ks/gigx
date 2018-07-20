@@ -15,7 +15,8 @@ const isValidObjectId = require('../../middlewares/isValidObjectId');
 router.get('/', requireLoggedInUser, (req, res, next) => {
   const data = {
     messages: req.flash('error'),
-    sections: [{ title: 'Featured', listings: [] }]
+    sections: [{ title: 'Featured', listings: [] }],
+    title: 'Featured'
   };
   Listing.find()
     .then(listings => {
@@ -62,7 +63,8 @@ router.get(
 // Add listing
 router.get('/add', requireLoggedInUser, (req, res, next) => {
   const data = {
-    messages: req.flash('error')
+    messages: req.flash('error'),
+    title: 'Add a listing'
   };
   res.render('listings/add', data);
 });
@@ -162,7 +164,8 @@ router.post('/search', requireLoggedInUser, (req, res, next) => {
 router.get('/live', requireLoggedInUser, (req, res, next) => {
   const data = {
     messages: req.flash('error'),
-    sections: []
+    sections: [],
+    title: 'Live shows'
   };
   Listing.find({ live: true })
     .then(results => {
@@ -183,7 +186,8 @@ router.get('/genres/:id', requireLoggedInUser, (req, res, next) => {
 
   const data = {
     messages: req.flash('error'),
-    sections: []
+    sections: [],
+    title: 'Explore'
   };
   Listing.find({ genre: req.params.id })
     .then(listings => {

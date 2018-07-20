@@ -28,7 +28,8 @@ router.get('/', (req, res, next) => {
     return res.redirect('/');
   }
   const data = {
-    messages: req.flash('error')
+    messages: req.flash('error'),
+    title: 'Sign up / Login'
   };
   res.render('users/auth', data);
 });

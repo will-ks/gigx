@@ -39,7 +39,8 @@ router.post('/stars/remove/:id', isValidObjectId, (req, res, next) => {
 router.get('/stars', (req, res, next) => {
   const data = {
     messages: req.flash('error'),
-    sections: []
+    sections: [],
+    title: 'Favourites'
   };
   User.findById(req.session.currentUser._id)
     .populate('stars')

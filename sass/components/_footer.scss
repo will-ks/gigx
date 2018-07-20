@@ -3,18 +3,14 @@ footer {
   overflow: hidden;
   padding: 20px;
 
-  #creators {
-    padding: 20px;
+  #social-icons {
+    i {
+      padding-right: 30px;
+      padding-bottom: 10px;
+    }
+
+    #creators {
+      padding: 20px;
+    }
   }
 }
-
-//   #IH {
-
-//     padding: 10px;
-//   }
-
-//   #contact {
-//     float: right;
-//     padding: 10px;
-//   }
-// }

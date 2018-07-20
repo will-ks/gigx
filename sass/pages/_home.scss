@@ -74,8 +74,12 @@
 
 .close {
   position: absolute;
-  top: 30px;
-  right: 20px;
-  width: 5%;
-  background-color: $primary;
+  top: 12px;
+  right: 12px;
+  width: 6%;
+  background-color: #db0000;
+  border: 1px solid #564d4d;
+  color: white;
+  border-radius: 174px;
+  height: 5%;
 }

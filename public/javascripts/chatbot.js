@@ -1,6 +1,6 @@
 function main () {
   const chatbot = document.querySelector('.chatbot');
-  const chatbotButton = document.querySelector('.chatbot-button');
+  const chatbotButton = document.querySelector('#chatbot-open');
   const closeChatbot = document.querySelector('.close');
 
   chatbotButton.addEventListener('click', event => {

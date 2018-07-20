@@ -47,6 +47,7 @@
   position: fixed;
   bottom: 30px;
   right: 20px;
+  z-index: 1;
 
   button {
     width: 100%;
@@ -70,6 +71,7 @@
   position: fixed;
   bottom: 30px;
   right: 20px;
+  z-index: 1;
 }
 
 .close {

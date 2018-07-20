@@ -74,20 +74,22 @@ router.post('/add', requireLoggedInUser, uploadCloud.single('imageFile'), (req, 
     location,
     genre,
     live,
-    dateTime
+    dateTime,
+    source
   } = req.body;
 
   const data = {
     title,
     videoUrl,
-    imageUrl: req.file.url || undefined,
+    imageUrl: req.file ? req.file.url : undefined,
     artist,
     year,
     duration,
     location,
     genre,
     live: live === 'on',
-    dateTime
+    dateTime,
+    source
   };
 
   const today = new Date();
@@ -99,7 +101,7 @@ router.post('/add', requireLoggedInUser, uploadCloud.single('imageFile'), (req, 
   }
 
   // Check video URL is valid
-  if (!validator.isURL(videoUrl)) {
+  if (!validator.isURL(videoUrl, { protocols: ['http', 'https', 'rtmp'] })) {
     req.flash('error', 'Please check the video URL');
     return res.redirect('/listings/add');
   }
@@ -151,6 +153,8 @@ router.post('/search', requireLoggedInUser, (req, res, next) => {
     .catch(next);
 });
 
+// Live listings
+
 router.get('/live', requireLoggedInUser, (req, res, next) => {
   const data = {
     messages: req.flash('error'),
@@ -160,6 +164,26 @@ router.get('/live', requireLoggedInUser, (req, res, next) => {
     .then(results => {
       const section = { title: 'Upcoming live shows', listings: results };
       data.sections.push(section);
+      res.render('listings', data);
+    })
+    .catch(next);
+});
+
+// Specific genres
+
+router.get('/genres/:id', requireLoggedInUser, (req, res, next) => {
+  if (!Listing.schema.paths.genre.enumValues.includes(req.params.id)) {
+    res.status(404);
+    return res.render('not-found');
+  }
+
+  const data = {
+    messages: req.flash('error'),
+    sections: []
+  };
+  Listing.find({ genre: req.params.id })
+    .then(listings => {
+      data.sections.push({ title: req.params.id, listings: listings });
       res.render('listings', data);
     })
     .catch(next);

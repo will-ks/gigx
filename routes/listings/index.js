@@ -23,16 +23,16 @@ router.get('/', requireLoggedInUser, (req, res, next) => {
       listings.forEach(listing => {
         if (listing.featured) {
           data.sections[0].listings.push(listing);
-        }
-
-        const genreIndex = data.sections.findIndex(element => {
-          return element.title === listing.genre;
-        });
-
-        if (!listing.featured && genreIndex > -1) {
-          data.sections[genreIndex].listings.push(listing);
         } else {
-          data.sections.push({ title: listing.genre, listings: [listing] });
+          const genreIndex = data.sections.findIndex(element => {
+            return element.title === listing.genre;
+          });
+
+          if (genreIndex > -1) {
+            data.sections[genreIndex].listings.push(listing);
+          } else {
+            data.sections.push({ title: listing.genre, listings: [listing] });
+          }
         }
       });
       res.render('listings', data);

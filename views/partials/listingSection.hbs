@@ -3,4 +3,7 @@
   {{#each listings}}
     {{> card}}
   {{/each}}
+  {{#unless listings}}
+    <h2>No results found</h2>
+  {{/unless}}
 </section>

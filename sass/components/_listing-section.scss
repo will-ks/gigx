@@ -1,5 +1,5 @@
 .listing-section {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
@@ -8,12 +8,10 @@
   width: 100%;
   min-height: 200px;
 
-
-
   @media (min-width: $phone-screen) and (max-width: $tablet-screen) {
     width: 50%;
     &:nth-of-type(even) {
-      padding-left:20px;
+      padding-left: 20px;
     }
   }
   @media (min-width: $tablet-screen) {
@@ -21,7 +19,7 @@
     &:nth-of-type(3n-1) {
       padding-left: 20px;
     }
-    &:nth-of-type(3n+0) {
+    &:nth-of-type(3n + 0) {
       padding-left: 20px;
     }
   }
@@ -39,7 +37,9 @@
   padding: 15px 25px;
   box-shadow: 0px 0px 25px black;
 
-  h2,h3,h4 {
+  h2,
+  h3,
+  h4 {
     opacity: 0;
     transition: all 0.3s;
     text-shadow: 0px 0px 5px black;
@@ -48,10 +48,20 @@
     overflow: hidden;
   }
 
+  #live-icon {
+    color: $primary;
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
   &:hover {
     transform: scale(1.1);
 
-    h2, h3, h4, i {
+    h2,
+    h3,
+    h4,
+    i {
       opacity: 1;
     }
   }
@@ -62,7 +72,7 @@
     color: white;
     cursor: pointer;
     &:hover {
-      transform: scale(1.3)
+      transform: scale(1.4);
     }
 
     &.remove-from-stars {
@@ -72,7 +82,7 @@
 
   form {
     padding: 0px;
-  
+
     button {
       width: fit-content;
       padding: 0px;

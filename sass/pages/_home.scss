@@ -9,7 +9,30 @@
   i {
     padding-top: 50px;
     font-size: 2em;
+    position: relative;
+    animation: bounce 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    &:hover {
+      border-bottom: 0px;
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 10px;
+      }
+      50% {
+        top: 0px;
+      }
+      100% {
+        top: 10px;
+      }
+    }
   }
+}
+
+#arrow-home {
+  margin-bottom: 0px;
 }
 
 #home-logo {

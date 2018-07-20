@@ -19,3 +19,31 @@
 #sign-up-button {
   max-width: 200px;
 }
+
+.chatbot-button {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+
+  button {
+    width: 100%;
+    height: 40px;
+    background-color: $primary;
+    color: #ffffff;
+    border-radius: 20px;
+    border: none;
+    font-size: 1em;
+    margin-top: 20px;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding: 10px;
+    transition: all 0.2s;
+    letter-spacing: 1.5px;
+    text-align: center;
+  }
+  chatbot {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+  }
+}

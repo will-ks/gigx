@@ -71,3 +71,11 @@
   bottom: 30px;
   right: 20px;
 }
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 5%;
+  background-color: $primary;
+}

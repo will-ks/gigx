@@ -11,22 +11,26 @@ const requireLoggedInUser = require('../../middlewares/requireLoggedInUser');
 const isValidObjectId = require('../../middlewares/isValidObjectId');
 
 // --- Routes --- //
-// Listings
+// Listings / Featured
 router.get('/', requireLoggedInUser, (req, res, next) => {
   const data = {
     messages: req.flash('error'),
-    sections: []
+    sections: [{ title: 'Featured', listings: [] }]
   };
   Listing.find()
     .then(listings => {
       // Put each listing into the data.sections array, in objects separated by genre
       listings.forEach(listing => {
-        const objectIndex = data.sections.findIndex(element => {
+        if (listing.featured) {
+          data.sections[0].listings.push(listing);
+        }
+
+        const genreIndex = data.sections.findIndex(element => {
           return element.title === listing.genre;
         });
 
-        if (objectIndex > -1) {
-          data.sections[objectIndex].listings.push(listing);
+        if (!listing.featured && genreIndex > -1) {
+          data.sections[genreIndex].listings.push(listing);
         } else {
           data.sections.push({ title: listing.genre, listings: [listing] });
         }

@@ -1,6 +1,9 @@
 # Project Name
 Gigx
 
+# Demo
+https://gigx.herokuapp.com/
+
 ## Description
 
 The Netflix of concert videos
@@ -19,7 +22,10 @@ List of user stories in order of priority/importance.
  - **concert details** - As a user I want to be able to view detailed information about the concert video so that I can make sure it matches my tastes
  - **concert view** - As a user I want to watch the concert videos so that I can enjoy watching the bands I like playing live
  - **concert add** - As a user I want to add concerts to the database so that other users can enjoy them
+ - **add to favourites** - As a user I want to add concert to my favourites list, so that I can keep track of the videos I like best
  - **profile** - As a user I want a profile that allows me to store my favourite concerts so that I can return to them whenever I want
+ - **search** - As a user I want to search concerts by title, genre and band so that I can find what I am looking for
+
 
 ## Backlog
 
@@ -28,9 +34,6 @@ List of other features outside of the MVPs scope
 User:
 - Change password
 - Forgot your password?
-
-Search:
-- Search concerts by genre, band, title, year etc.
 
 User profile:
 - see my profile
